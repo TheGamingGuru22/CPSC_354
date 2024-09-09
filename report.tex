@@ -113,10 +113,10 @@ Tuesday: Orientation and introduction to the course. \newline Thursday: First La
 Our homework for this week was to finish levels 5-8 of the tutorial world inside the Natural Numbers Game provided to us in class. On Tuesday of week 1, we went over the game in basic detail, covering levels 1-4 as to become used to the website so we could begin our first challenge. The solutions to each of the worlds can be found below in an itemized format.
 
 \begin{itemize}
-\item World 5 Solution: rw[\,add \textunderscore zero]\,, rw[\,add \textunderscore zero]\,, rfl.
-\item World 6 Solution: rw[\,add \textunderscore zero c]\,, rw[\,add \textunderscore zero b]\,, rfl.
-\item World 7 Solution: rw[\,one \textunderscore eq \textunderscore succ \textunderscore zero]\,, rw[\,add \textunderscore succ]\,, rw[\,add \textunderscore zero]\,, rfl
-\item World 8 Solution: rw[\,two \textunderscore eq \textunderscore succ \textunderscore one, one \textunderscore eq \textunderscore succ \textunderscore zero]\,, rw[\,add \textunderscore succ]\,, rw[\,add \textunderscore zero]\,, rw[\,\textless - one \textunderscore eq \textunderscore succ \textunderscore zero, \textless - two \textunderscore eq \textunderscore succ \textunderscore one, \textless - three \textunderscore eq \textunderscore succ \textunderscore two, \textless - four \textunderscore eq \textunderscore succ \textunderscore three]\,
+\item World 5 Solution: rw[\,add\textunderscore zero]\,, rw[\,add\textunderscore zero]\,, rfl.
+\item World 6 Solution: rw[\,add\textunderscore zero c]\,, rw[\,add\textunderscore zero b]\,, rfl.
+\item World 7 Solution: rw[\,one\textunderscore eq\textunderscore succ\textunderscore zero]\,, rw[\,add\textunderscore succ]\,, rw[\,add\textunderscore zero]\,, rfl.
+\item World 8 Solution: rw[\,two\textunderscore eq\textunderscore succ\textunderscore one, one\textunderscore eq\textunderscore succ\textunderscore zero]\,, rw[\,add\textunderscore succ]\,, rw[\,add\textunderscore zero]\,, rw[\,\textless - one\textunderscore eq\textunderscore succ\textunderscore zero, \textless - two\textunderscore eq\textunderscore succ\textunderscore one, \textless - three\textunderscore eq\textunderscore succ\textunderscore two, \textless - four\textunderscore eq\textunderscore succ\textunderscore three]\,.
 \end{itemize}
 
 World 5's solutition is to rewrite the equation by adding zero onto a variable \textbf{b} or \textbf{c}, and as we know from a descrete math proof described as $\forall n \in N,n+0=n$, adding zero to any number provides the same equivalent number. This becomes useful later in sections seven and eight when we begin dealing with adding zero to successor values. 
@@ -147,7 +147,25 @@ My question is then, what is the largest, hardest, and most difficult proof a pe
 
 \subsection{Week 2}
 
-(Delete:) Week 2 (and all the other weeks) should follow the same pattern as Week 1. Even if there is a week without homework, notes and comments (see above) are still expected.
+Tuesday: What is a proposition? Covering Eric Villanueva's question "I wonder how the computer or code implements the logic we have in understanding discrete mathematics to make computtations. How do we define the idea of successors so that the computer knows how to carry out calculations?"
+
+\subsubsection*{Notes and Homework}
+
+\begin{itemize}
+  \item World 1 Solution: Induction n with d, rw[\,add\_zero]\,, rfl, rw[\,succ\_eq\_add\_one]\,, rw[\,one\_eq\_succ\_zero]\,, rw[\,add\_zero]\,, rw[\,add\_succ]\,, rw[\,n\_ih]\,, rfl.
+  \item World 2 Solution: Induction b with d hd, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,hd]\,, rfl.
+  \item World 3 Solution: Induction b with b hb, rw[\,add\_zero, zero\_add]\,, rfl, rw[\,add\_succ, succ\_add, hb]\,, rfl.
+  \item World 4 Solution: Induction c with c hc, rw[\,add\_zero]\,, rw[add\_zero]\,, rfl, rw[\,add\_succ]\,, rw[\,add\_succ]\,, rw[\,hc]\,, rfl.
+  \item World 5 Solution: Induction c with c hc, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,succ\_add]\,, rw[\,hc]\,, rfl.
+\end{itemize}
+
+World 5's solution is to discover the add\_right\_comm function through other theorems we are already familier with. Utilizing several Lean theorems, such as rw[\,add\_succ]\,, rw[\,add\_zero]\,, and proving by indcution, we can rewrite $a+b+c = a+c+b$ into $succ (a+c+b) = succ (a+c+b)$. Proving this fact using standard mathematics follows a similar set of rules as well. Should you aim to prove by induction, you can then add zeros and use reflexivity to reconstruct an equation to prove add\_right\_comm.
+
+
+\subsubsection*{Comments \& Questions}
+
+In reference to the additional reading for this week, the dialogue \textit{Little Harmonic Labrinth}, it describes recursion in a much more palatable format. Essentially, you have an item operating within itself endlessly. This concept is very useful as a time saver when it comes to certain coding tasks, but my question in relation to recursion is; How can recursion be optimized in a computer environment as to be effective without running out of resources in relation to large tasks? 
+
 
 \subsection{\ldots}
 
