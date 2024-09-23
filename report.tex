@@ -21,6 +21,8 @@
     
 \usepackage{listings}
 
+\DeclareMathOperator{\successor}{succ}
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -113,10 +115,10 @@ Tuesday: Orientation and introduction to the course. \newline Thursday: First La
 Our homework for this week was to finish levels 5-8 of the tutorial world inside the Natural Numbers Game provided to us in class. On Tuesday of week 1, we went over the game in basic detail, covering levels 1-4 as to become used to the website so we could begin our first challenge. The solutions to each of the worlds can be found below in an itemized format.
 
 \begin{itemize}
-\item World 5 Solution: rw[\,add\textunderscore zero]\,, rw[\,add\textunderscore zero]\,, rfl.
-\item World 6 Solution: rw[\,add\textunderscore zero c]\,, rw[\,add\textunderscore zero b]\,, rfl.
-\item World 7 Solution: rw[\,one\textunderscore eq\textunderscore succ\textunderscore zero]\,, rw[\,add\textunderscore succ]\,, rw[\,add\textunderscore zero]\,, rfl.
-\item World 8 Solution: rw[\,two\textunderscore eq\textunderscore succ\textunderscore one, one\textunderscore eq\textunderscore succ\textunderscore zero]\,, rw[\,add\textunderscore succ]\,, rw[\,add\textunderscore zero]\,, rw[\,\textless - one\textunderscore eq\textunderscore succ\textunderscore zero, \textless - two\textunderscore eq\textunderscore succ\textunderscore one, \textless - three\textunderscore eq\textunderscore succ\textunderscore two, \textless - four\textunderscore eq\textunderscore succ\textunderscore three]\,.
+  \item \texttt{World 5 Solution: rw[\,add\_zero]\,, rw[\,add\_zero]\,, rfl.}
+  \item \texttt{World 6 Solution: rw[\,add\_zero c]\,, rw[\,add\_zero b]\,, rfl.}
+  \item \texttt{World 7 Solution: rw[\,one\_eq\_succ\_zero]\,, rw[\,add\_succ]\,, rw[\,add\_zero]\,, rfl.}
+  \item \texttt{World 8 Solution: rw[\,two\_eq\_succ\_one, one\_eq\_succ\_zero]\,, rw[\,add\_succ]\,, rw[\,add\_zero]\,, rw[\,<- one\_eq\_succ\_zero, <- two\_eq\_succ\_one, <- three\_eq\_succ\_two, <- four\_eq\_succ\_three]\,}
 \end{itemize}
 
 World 5's solutition is to rewrite the equation by adding zero onto a variable \textbf{b} or \textbf{c}, and as we know from a descrete math proof described as $\forall n \in N,n+0=n$, adding zero to any number provides the same equivalent number. This becomes useful later in sections seven and eight when we begin dealing with adding zero to successor values. 
@@ -141,7 +143,7 @@ World 5's solutition is to rewrite the equation by adding zero onto a variable \
 
 Looking at Discrete Math over the past few days and getting a refresher on the course since I took it a few semesters ago has been very interesting. I have enjoyed the tutorial levels of the Natural Numbers Game, and I particularly enjoyed their explanations for the proofs and early concepts for Discrete Math. Had I known about this website when I was taking the course, I have a feeling it would have been a great resource to support my understanding of those proofs and other concepts. 
 
-My question then in relation to discrete mathematics comes more so with how we utilize those proofs on paper verses when they are used in a computational environment. For example, writing a Discrete Math proof can often take a significant amount of time and paper to create, depending of course on the operation. For something as simple as addition or multiplication, using the proofs outlined in Discrete Math can turn a simple problem, such as 2*(3+2+4), into a massive multi-page proof. However, when a computer runs such a problem, it concludes the correct answer in an astoundingly short amount of time.
+My question then in relation to discrete mathematics comes more so with how we utilize those proofs on paper verses when they are used in a computational environment. For example, writing a Discrete Math proof can often take a significant amount of time and paper to create, depending of course on the operation. For something as simple as addition or multiplication, using the proofs outlined in Discrete Math can turn a simple problem, such as $2*(3+2+4)$, into a massive multi-page proof. However, when a computer runs such a problem, it concludes the correct answer in an astoundingly short amount of time.
 
 My question is then, what is the largest, hardest, and most difficult proof a person could do by hand that can be done in seconds by a machine?\footnote{It is important to learn to ask \emph{interesting} questions. There is no precise way of defining what is meant by interesting. You can only learn this by doing. An interesting question comes typically in two parts. Part 1 (one or two sentences) sets the scene. Part 2 (one or two sentences) asks the question. A good question strikes the right balance between being specific and technical on the one hand and open ended on the other hand. A question that can be answered with yes/no is not an interesing question.}
 
@@ -152,38 +154,59 @@ Tuesday: What is a proposition? Covering Eric Villanueva's question "I wonder ho
 \subsubsection*{Notes and Homework}
 
 \begin{itemize}
-  \item World 1 Solution: Induction n with d, rw[\,add\_zero]\,, rfl, rw[\,succ\_eq\_add\_one]\,, rw[\,one\_eq\_succ\_zero]\,, rw[\,add\_zero]\,, rw[\,add\_succ]\,, rw[\,n\_ih]\,, rfl.
-  \item World 2 Solution: Induction b with d hd, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,hd]\,, rfl.
-  \item World 3 Solution: Induction b with b hb, rw[\,add\_zero, zero\_add]\,, rfl, rw[\,add\_succ, succ\_add, hb]\,, rfl.
-  \item World 4 Solution: Induction c with c hc, rw[\,add\_zero]\,, rw[add\_zero]\,, rfl, rw[\,add\_succ]\,, rw[\,add\_succ]\,, rw[\,hc]\,, rfl.
-  \item World 5 Solution: Induction c with c hc, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,succ\_add]\,, rw[\,hc]\,, rfl.
+  \item \texttt{World 1 Solution: Induction n with d, rw[\,add\_zero]\,, rfl, rw[\,succ\_eq\_add\_one]\,, rw[\,one\_eq\_succ\_zero]\,, rw[\,add\_zero]\,, rw[\,add\_succ]\,, rw[\,n\_ih]\,, rfl.}
+  \item \texttt{World 2 Solution: Induction b with d hd, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,hd]\,, rfl.}
+  \item \texttt{World 3 Solution: Induction b with b hb, rw[\,add\_zero, zero\_add]\,, rfl, rw[\,add\_succ, succ\_add, hb]\,, rfl.}
+  \item \texttt{World 4 Solution: Induction c with c hc, rw[\,add\_zero]\,, rw[add\_zero]\,, rfl, rw[\,add\_succ]\,, rw[\,add\_succ]\,, rw[\,hc]\,, rfl.}
+  \item \texttt{World 5 Solution: Induction c with c hc, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,succ\_add]\,, rw[\,hc]\,, rfl.}
 \end{itemize}
 
-World 5's solution is to discover the add\_right\_comm function through other theorems we are already familier with. Utilizing several Lean theorems, such as rw[\,add\_succ]\,, rw[\,add\_zero]\,, and proving by indcution, we can rewrite $a+b+c = a+c+b$ into $succ (a+c+b) = succ (a+c+b)$. Proving this fact using standard mathematics follows a similar set of rules as well. Should you aim to prove by induction, you can then add zeros and use reflexivity to reconstruct an equation to prove add\_right\_comm.
+World 5's solution is to discover the add\_right\_comm function through other theorems we are already familier with. Utilizing several Lean theorems, such as \texttt{rw[\,add\_succ]\,, rw[\,add\_zero]\,}, and proving by indcution, we can rewrite $a+b+c = a+c+b$ into $\successor (a+c+b) = \successor  (a+c+b)$. Proving this fact using standard mathematics follows a similar set of rules as well. Should you aim to prove by induction, you can then add zeros and use reflexivity to reconstruct an equation to prove add\_right\_comm.
 
 
 \subsubsection*{Comments \& Questions}
 
 In reference to the additional reading for this week, the dialogue \textit{Little Harmonic Labrinth}, it describes recursion in a much more palatable format. Essentially, you have an item operating within itself endlessly. This concept is very useful as a time saver when it comes to certain coding tasks, but my question in relation to recursion is; How can recursion be optimized in a computer environment as to be effective without running out of resources in relation to large tasks? 
 
+\subsection{Week 3}
 
-\subsection{\ldots}
+\subsubsection*{Notes \& Homework}
+
+\subsubsection*{Comments \& Questions}
+
+
+\subsection{Week 4}
+
+\subsubsection*{Notes \& Homework}
+Tuesday: Covering individuals projects from last week. Thursday: Learning to use Cursor and its various features. Progress on Assignment 1 and associated lab work.
+
+Homework: Solve homework exercises in relation to parsing trees. Below, questions 1-5 are completed with specific solutions being in differing colors.
+
+
+\graphicspath{ {C:/Users/jrmul/OneDrive/Documents/CPSC_Courses/CPSC_354/images/} }
+\begin{center} \includegraphics[width=0.5\textwidth]{HW4_Solutions} \end{center}
+
+\subsubsection*{Comments \& Questions}
+
+My question for this week centers around the ideas of parsing trees. How are parsing trees best utilized when in a coding environment? They seem very useful for mathematical equations and logical reasoning, but I am unsure of how they would be useful when programming.
+
+\subsection{\ldots} 
 
 \ldots
 
 \section{Lessons from the Assignments}
 
-(Delete and Replace): Write three pages about your individual contributions to the project.
+%(Delete and Replace): Write three pages about your individual contributions to the project.
 
-On 3 pages you describe lessons you learned from the project. Be as technical and detailed as possible. Particularly valuable are \emph{interesting} examples where you connect concrete technical details with \emph{interesting} general observations or where the theory discussed in the lectures helped with the design or implementation of the project.
+%On 3 pages you describe lessons you learned from the project. Be as technical and detailed as possible. Particularly valuable are \emph{interesting} examples where you connect concrete technical details with \emph{interesting} general observations or where the theory discussed in the lectures helped with the design or implementation of the project.
 
-Write this section during the semester. This is approximately a quarter of apage per week and the material should come from the work you do anyway. Just keep your eyes open for interesting lessons.
+%Write this section during the semester. This is approximately a quarter of apage per week and the material should come from the work you do anyway. Just keep your eyes open for interesting lessons.
 
-Make sure that you use \LaTeX{} to structure your writing (eg by using subsections).
+%Make sure that you use \LaTeX{} to structure your writing (eg by using subsections).
 
 \section{Conclusion}\label{conclusion}
 
-(Delete and Replace): (approx 400 words) A critical reflection on the content of the course. Step back from the technical details. How does the course fit into the wider world of software engineering? What did you find most interesting or useful? What improvements would you suggest?
+%(Delete and Replace): (approx 400 words) A critical reflection on the content of the course. Step back from the technical details. How does the course fit into the wider world of software engineering? What did you find most interesting or useful? What improvements would you suggest?
 
 \begin{thebibliography}{99}
 \bibitem[BLA]{bla} Author, \href{https://en.wikipedia.org/wiki/LaTeX}{Title}, Publisher, Year.
