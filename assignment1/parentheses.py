@@ -12,4 +12,8 @@ def balance_check(expression):
     return not stack
 
 expression = sys.argv[1]
-print(balance_check(expression))  
+
+if balance_check(expression) == True:
+    print("yes")
+else:
+    print("no")
