@@ -22,6 +22,11 @@
 \usepackage{listings}
 
 \DeclareMathOperator{\successor}{succ}
+\DeclareMathOperator{\have}{have}
+\DeclareMathOperator{\exact}{exact}
+\DeclareMathOperator{\andLeft}{and\_left}
+\DeclareMathOperator{\andRight}{and\_right}
+
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -189,6 +194,41 @@ Homework: Solve homework exercises in relation to parsing trees. Below, question
 \subsubsection*{Comments \& Questions}
 
 My question for this week centers around the ideas of parsing trees. How are parsing trees best utilized when in a coding environment? They seem very useful for mathematical equations and logical reasoning, but I am unsure of how they would be useful when programming.
+
+
+\subsection{Week 5}
+
+\subsubsection*{Notes \& Homework}
+Tuesday: Working on Assignment 2, due Wednesday. 
+Thursday: Begin $\wedge$ Tutorial: Party Invites. Solutions to levels 1-8 are listed below.
+
+\begin{itemize}
+  \item \texttt{World 1 Solution: $\exact todo\_list$.}
+  \item \texttt{World 2 Solution: $\exact \langle p, s \rangle$.}
+  \item \texttt{World 3 Solution: $\have ai := and\_intro a i, have ou := and\_intro o u, exact \langle ai, ou \rangle$.}
+  \item \texttt{World 4 Solution: $\exact \andLeft vm$.}
+  \item \texttt{World 5 Solution: $\exact \andRight h$.}
+  \item \texttt{World 6 Solution: $\exact \langle h1.left, h2.right \rangle$.}
+  \item \texttt{World 7 Solution: $\have h1 := h.left, \have h2 := h.right, \have h3 := h2.left, \have h4 := h3.left, \exact h4.right$.}
+  \item \texttt{World 8 Solution: $\have h1 := h.left, \have a := h1.right, \have b := h1.left, \have h2 := h.right, \have h3 := h2.right, \have h4 := h3.left, \have c := h4.left, \exact \langle a, b, c\rangle$.}
+\end{itemize}
+
+The solution for world 8 written in mathematical logic goes as follows: 
+
+\begin{itemize}
+  \item Assume $h=((P \wedge S) \wedge A) \wedge \not I \wedge (C \wedge \not O) \wedge \not U$
+  \item $h1 = (P \wedge S) \wedge A$ and\_left on h $(1)$
+  \item $a = A$ and\_right on h1 $(2)$
+  \item $b = P \wedge S, $ and\_left on h1 $(3)$ 
+  \item $h2 = \not I \wedge (C \wedge \not O) \wedge \not U$ and\_right on h $(4)$
+  \item $h3 = (C \wedge \not O) \wedge \not U, $ and\_right on h2 $(5)$
+  \item $h4 = C \wedge \not O, $ and\_left on h3 $(6)$
+  \item $c = C, $ and\_left on h4 $(7)$
+  \item $A \wedge C \wedge P \wedge S$ $(8)$
+\end{itemize}
+
+\subsubsection*{Comments \& Questions}
+My question for this week pertains to the complexity of lean. As we progress through different worlds of the game, the harder and more complex the problems we have to solve, especially on boss levels, where combinations from prior levels are brought together to make one much more challenging level. In math however, items that are significantly more complex than simple logic proofs or basic arithmetic exist. How then does Lean simplify complex math down into assumed proofs for much larger and complex equations or logic proofs, and what problems take longer to solve using a Lean logic rather than standard math or coding logic?
 
 \subsection{\ldots} 
 
