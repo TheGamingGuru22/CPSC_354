@@ -1,0 +1,255 @@
+\documentclass{article}
+
+\usepackage{tikz} 
+\usetikzlibrary{automata, positioning, arrows} 
+
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage{hyperref}
+  \hypersetup{
+    colorlinks = true,
+    urlcolor = blue,       % color of external links using \href
+    linkcolor= blue,       % color of internal links 
+    citecolor= blue,       % color of links to bibliography
+    filecolor= blue,        % color of file links
+    }
+    
+\usepackage{listings}
+
+\DeclareMathOperator{\successor}{succ}
+\DeclareMathOperator{\have}{have}
+\DeclareMathOperator{\exact}{exact}
+\DeclareMathOperator{\andLeft}{and\_left}
+\DeclareMathOperator{\andRight}{and\_right}
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=haskell,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\newtheoremstyle{theorem}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\itshape\/}  % BODYFONT
+  {0pt}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {}          % CUSTOM-HEAD-SPEC
+\theoremstyle{theorem} 
+   \newtheorem{theorem}{Theorem}[section]
+   \newtheorem{corollary}[theorem]{Corollary}
+   \newtheorem{lemma}[theorem]{Lemma}
+   \newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+   \newtheorem{definition}[theorem]{Definition}
+   \newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}    
+  \newtheorem{remark}[theorem]{Remark}
+
+\title{CPSC-354 Report}
+\author{John Robert Mulhern  \\ Chapman University}
+
+\date{\today} 
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document will contain the various assignments completed by John Mulhern over the course of the CPSC 354 Programming Languages course. For any questions, comments, or concerns in this document, feel free to reach out to John Mulhern at his email, mulhern@chapman.edu, or by phone number: (208)-451-3484.   
+\end{abstract}
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+
+\section{Introduction}\label{intro}
+
+This report will document my learning throughout the course. It will be a collection of my notes, homework solutions, and critical reflections on the content of the course. Something in between a semester-long take home exam and my own lecture notes.\footnote{One purpose of giving the report the form of lecture notes is that self-explanation is a technique proven to help with learning, see Chapter 6 of Craig Barton, How I Wish I'd Taught Maths, and references therein. In fact, the report can lead you from self-explanation (which is what you do for the weekly deadline) to explaining to others (which is what you do for the final submission). Another purpose is to help those of you who want to go on to graduate school to develop some basic writing skills. A report that you could proudly add to your application to graduate school (or a job application in industry) would give you full points.}
+
+To modify this template I would need to modify the source \texttt{report.tex} which is available in the course repo. For guidance on how to do this read both the source and the pdf of \texttt{latex-example.tex} which is also available in the repo. Also check out the usual resources (Google, Stackoverflow, LLM, etc). It was never as easy as now to learn a new programming lanugage (which, btw, \LaTeX{} is).
+
+For writing \LaTeX{} with VSCode use the \href{https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop}{LaTeX Workshop} extension. 
+
+There will be deadlines during the semester, graded mostly for completeness. That means that I will get the points if I submit in time and are on the right track, independently of whether the solutions are technically correct. I will have the opportunity to revise my work for the final submission of the full report.
+
+The full report is due at the end of the finals week. It will be graded according to the following guidelines.
+
+Grading  guidelines (see also below):
+\begin{itemize}
+\item Is typesetting and layout professional? 
+\item Is the technical content, in particular the homework, correct?
+\item Did I find interesting references~\cite{bla} and cites them throughout the report?
+\item Do the notes reflect understanding and critical thinking?
+\item Does the report contain material related to but going beyond what we do in class?
+\item Are the questions interesting?
+\end{itemize}
+
+Do not change the template (fontsize, width of margin, spacing of lines, etc) without asking your first.
+
+\section{Week by Week}\label{homework}
+
+\subsection{Week 1}
+
+Tuesday: Orientation and introduction to the course. \newline Thursday: First Lab on Tuesday's content.
+
+\subsubsection*{Notes and Homework}
+
+Our homework for this week was to finish levels 5-8 of the tutorial world inside the Natural Numbers Game provided to us in class. On Tuesday of week 1, we went over the game in basic detail, covering levels 1-4 as to become used to the website so we could begin our first challenge. The solutions to each of the worlds can be found below in an itemized format.
+
+\begin{itemize}
+  \item \texttt{World 5 Solution: rw[\,add\_zero]\,, rw[\,add\_zero]\,, rfl.}
+  \item \texttt{World 6 Solution: rw[\,add\_zero c]\,, rw[\,add\_zero b]\,, rfl.}
+  \item \texttt{World 7 Solution: rw[\,one\_eq\_succ\_zero]\,, rw[\,add\_succ]\,, rw[\,add\_zero]\,, rfl.}
+  \item \texttt{World 8 Solution: rw[\,two\_eq\_succ\_one, one\_eq\_succ\_zero]\,, rw[\,add\_succ]\,, rw[\,add\_zero]\,, rw[\,<- one\_eq\_succ\_zero, <- two\_eq\_succ\_one, <- three\_eq\_succ\_two, <- four\_eq\_succ\_three]\,}
+\end{itemize}
+
+World 5's solutition is to rewrite the equation by adding zero onto a variable \textbf{b} or \textbf{c}, and as we know from a descrete math proof described as $\forall n \in N,n+0=n$, adding zero to any number provides the same equivalent number. This becomes useful later in sections seven and eight when we begin dealing with adding zero to successor values. 
+
+%In case you want to draw automata in Latex, you can use the tikz %package. Here is an example of a simple automaton:
+%
+%\begin{tikzpicture}[shorten >=1pt,node distance=2cm,on grid,auto] 
+%  \node[state] (q_1)   {$q_1$}; 
+%  \node[state] (q_2) [above right=of q_1] {$q_2$}; 
+%  \node[state] (q_3) [below right=of q_2] {$q_3$}; 
+%   \path[->] 
+%   (q_1) edge  node {0} (q_2)
+%         edge  node [swap] {1} (q_3)
+%   (q_2) edge  node  {1} (q_3)
+%         edge [loop above] node {0} ()
+%   (q_3) edge [loop below] node {0,1} ();
+%\end{tikzpicture}
+%
+%By the way, GPT-4 is quite good at outputting tikz code.
+
+\subsubsection*{Comments and Questions}
+
+Looking at Discrete Math over the past few days and getting a refresher on the course since I took it a few semesters ago has been very interesting. I have enjoyed the tutorial levels of the Natural Numbers Game, and I particularly enjoyed their explanations for the proofs and early concepts for Discrete Math. Had I known about this website when I was taking the course, I have a feeling it would have been a great resource to support my understanding of those proofs and other concepts. 
+
+My question then in relation to discrete mathematics comes more so with how we utilize those proofs on paper verses when they are used in a computational environment. For example, writing a Discrete Math proof can often take a significant amount of time and paper to create, depending of course on the operation. For something as simple as addition or multiplication, using the proofs outlined in Discrete Math can turn a simple problem, such as $2*(3+2+4)$, into a massive multi-page proof. However, when a computer runs such a problem, it concludes the correct answer in an astoundingly short amount of time.
+
+My question is then, what is the largest, hardest, and most difficult proof a person could do by hand that can be done in seconds by a machine?\footnote{It is important to learn to ask \emph{interesting} questions. There is no precise way of defining what is meant by interesting. You can only learn this by doing. An interesting question comes typically in two parts. Part 1 (one or two sentences) sets the scene. Part 2 (one or two sentences) asks the question. A good question strikes the right balance between being specific and technical on the one hand and open ended on the other hand. A question that can be answered with yes/no is not an interesing question.}
+
+\subsection{Week 2}
+
+Tuesday: What is a proposition? Covering Eric Villanueva's question "I wonder how the computer or code implements the logic we have in understanding discrete mathematics to make computtations. How do we define the idea of successors so that the computer knows how to carry out calculations?"
+
+\subsubsection*{Notes and Homework}
+
+\begin{itemize}
+  \item \texttt{World 1 Solution: Induction n with d, rw[\,add\_zero]\,, rfl, rw[\,succ\_eq\_add\_one]\,, rw[\,one\_eq\_succ\_zero]\,, rw[\,add\_zero]\,, rw[\,add\_succ]\,, rw[\,n\_ih]\,, rfl.}
+  \item \texttt{World 2 Solution: Induction b with d hd, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,hd]\,, rfl.}
+  \item \texttt{World 3 Solution: Induction b with b hb, rw[\,add\_zero, zero\_add]\,, rfl, rw[\,add\_succ, succ\_add, hb]\,, rfl.}
+  \item \texttt{World 4 Solution: Induction c with c hc, rw[\,add\_zero]\,, rw[add\_zero]\,, rfl, rw[\,add\_succ]\,, rw[\,add\_succ]\,, rw[\,hc]\,, rfl.}
+  \item \texttt{World 5 Solution: Induction c with c hc, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,succ\_add]\,, rw[\,hc]\,, rfl.}
+\end{itemize}
+
+World 5's solution is to discover the add\_right\_comm function through other theorems we are already familier with. Utilizing several Lean theorems, such as \texttt{rw[\,add\_succ]\,, rw[\,add\_zero]\,}, and proving by indcution, we can rewrite $a+b+c = a+c+b$ into $\successor (a+c+b) = \successor  (a+c+b)$. Proving this fact using standard mathematics follows a similar set of rules as well. Should you aim to prove by induction, you can then add zeros and use reflexivity to reconstruct an equation to prove add\_right\_comm.
+
+
+\subsubsection*{Comments \& Questions}
+
+In reference to the additional reading for this week, the dialogue \textit{Little Harmonic Labrinth}, it describes recursion in a much more palatable format. Essentially, you have an item operating within itself endlessly. This concept is very useful as a time saver when it comes to certain coding tasks, but my question in relation to recursion is; How can recursion be optimized in a computer environment as to be effective without running out of resources in relation to large tasks? 
+
+\subsection{Week 3}
+
+\subsubsection*{Notes \& Homework}
+
+\subsubsection*{Comments \& Questions}
+
+
+\subsection{Week 4}
+
+\subsubsection*{Notes \& Homework}
+Tuesday: Covering individuals projects from last week. Thursday: Learning to use Cursor and its various features. Progress on Assignment 1 and associated lab work.
+
+Homework: Solve homework exercises in relation to parsing trees. Below, questions 1-5 are completed with specific solutions being in differing colors.
+
+
+\graphicspath{ {C:/Users/jrmul/OneDrive/Documents/CPSC_Courses/CPSC_354/images/} }
+\begin{center} \includegraphics[width=0.5\textwidth]{HW4_Solutions} \end{center}
+
+\subsubsection*{Comments \& Questions}
+
+My question for this week centers around the ideas of parsing trees. How are parsing trees best utilized when in a coding environment? They seem very useful for mathematical equations and logical reasoning, but I am unsure of how they would be useful when programming.
+
+
+\subsection{Week 5}
+
+\subsubsection*{Notes \& Homework}
+Tuesday: Working on Assignment 2, due Wednesday. 
+Thursday: Begin $\wedge$ Tutorial: Party Invites. Solutions to levels 1-8 are listed below.
+
+\begin{itemize}
+  \item \texttt{World 1 Solution: $\exact todo\_list$.}
+  \item \texttt{World 2 Solution: $\exact \langle p, s \rangle$.}
+  \item \texttt{World 3 Solution: $\have ai := and\_intro a i, have ou := and\_intro o u, exact \langle ai, ou \rangle$.}
+  \item \texttt{World 4 Solution: $\exact \andLeft vm$.}
+  \item \texttt{World 5 Solution: $\exact \andRight h$.}
+  \item \texttt{World 6 Solution: $\exact \langle h1.left, h2.right \rangle$.}
+  \item \texttt{World 7 Solution: $\have h1 := h.left, \have h2 := h.right, \have h3 := h2.left, \have h4 := h3.left, \exact h4.right$.}
+  \item \texttt{World 8 Solution: $\have h1 := h.left, \have a := h1.right, \have b := h1.left, \have h2 := h.right, \have h3 := h2.right, \have h4 := h3.left, \have c := h4.left, \exact \langle a, b, c\rangle$.}
+\end{itemize}
+
+The solution for world 8 written in mathematical logic goes as follows: 
+
+\begin{itemize}
+  \item Assume $h=((P \wedge S) \wedge A) \wedge \not I \wedge (C \wedge \not O) \wedge \not U$
+  \item $h1 = (P \wedge S) \wedge A$ and\_left on h $(1)$
+  \item $a = A$ and\_right on h1 $(2)$
+  \item $b = P \wedge S, $ and\_left on h1 $(3)$ 
+  \item $h2 = \not I \wedge (C \wedge \not O) \wedge \not U$ and\_right on h $(4)$
+  \item $h3 = (C \wedge \not O) \wedge \not U, $ and\_right on h2 $(5)$
+  \item $h4 = C \wedge \not O, $ and\_left on h3 $(6)$
+  \item $c = C, $ and\_left on h4 $(7)$
+  \item $A \wedge C \wedge P \wedge S$ $(8)$
+\end{itemize}
+
+\subsubsection*{Comments \& Questions}
+My question for this week pertains to the complexity of lean. As we progress through different worlds of the game, the harder and more complex the problems we have to solve, especially on boss levels, where combinations from prior levels are brought together to make one much more challenging level. In math however, items that are significantly more complex than simple logic proofs or basic arithmetic exist. How then does Lean simplify complex math down into assumed proofs for much larger and complex equations or logic proofs, and what problems take longer to solve using a Lean logic rather than standard math or coding logic?
+
+\subsection{\ldots} 
+
+\ldots
+
+\section{Lessons from the Assignments}
+
+%(Delete and Replace): Write three pages about your individual contributions to the project.
+
+%On 3 pages you describe lessons you learned from the project. Be as technical and detailed as possible. Particularly valuable are \emph{interesting} examples where you connect concrete technical details with \emph{interesting} general observations or where the theory discussed in the lectures helped with the design or implementation of the project.
+
+%Write this section during the semester. This is approximately a quarter of apage per week and the material should come from the work you do anyway. Just keep your eyes open for interesting lessons.
+
+%Make sure that you use \LaTeX{} to structure your writing (eg by using subsections).
+
+\section{Conclusion}\label{conclusion}
+
+%(Delete and Replace): (approx 400 words) A critical reflection on the content of the course. Step back from the technical details. How does the course fit into the wider world of software engineering? What did you find most interesting or useful? What improvements would you suggest?
+
+\begin{thebibliography}{99}
+\bibitem[BLA]{bla} Author, \href{https://en.wikipedia.org/wiki/LaTeX}{Title}, Publisher, Year.
+\end{thebibliography}
+
+\end{document}
