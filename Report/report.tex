@@ -24,6 +24,7 @@
 \DeclareMathOperator{\successor}{succ}
 \DeclareMathOperator{\have}{have}
 \DeclareMathOperator{\exact}{exact}
+\DeclareMathOperator{\andIntro}{and\_intro}
 \DeclareMathOperator{\andLeft}{and\_left}
 \DeclareMathOperator{\andRight}{and\_right}
 
@@ -229,6 +230,29 @@ The solution for world 8 written in mathematical logic goes as follows:
 
 \subsubsection*{Comments \& Questions}
 My question for this week pertains to the complexity of lean. As we progress through different worlds of the game, the harder and more complex the problems we have to solve, especially on boss levels, where combinations from prior levels are brought together to make one much more challenging level. In math however, items that are significantly more complex than simple logic proofs or basic arithmetic exist. How then does Lean simplify complex math down into assumed proofs for much larger and complex equations or logic proofs, and what problems take longer to solve using a Lean logic rather than standard math or coding logic?
+
+
+\subsection{Week 6} 
+
+\subsubsection*{Notes \& Homework}
+Tuesday: We began to cover the ideas of lambda calculus, introducing some ideas for lambda parsing, as well as the Lean Logic levels on implications. Thursday: We continued to cover lambda calculus, specifically lambda abstraction and application. 
+
+\begin{itemize}
+  \item \texttt{World 1 Solution: $\exact backery\_service p$.}
+  \item \texttt{World 2 Solution: $\exact \lambda(h : C) \mapsto h$.}
+  \item \texttt{World 3 Solution: $\exact \lambda h : I \wedge S \mapsto \andIntro (\andRight \; h) \; h.left$.}
+  \item \texttt{World 4 Solution: $\exact h1 >> h2$.}
+  \item \texttt{World 5 Solution: $\have step1 := h1 >> h3$.}
+  \item \texttt{World 6 Solution: $\exact \lambda c \mapsto \andIntro c >> h$.}
+  \item \texttt{World 7 Solution: $\exact \lambda(cd: C \wedge D) \mapsto h \; cd.left \; cd.right$.}
+  \item \texttt{World 8 Solution: $\exact \lambda(s : S) \mapsto \andIntro (h.left \; s) (h.right \; s)$.}
+  \item \texttt{World 9 Solution: $\have \: sr := \lambda(r: R)(_ : S) \mapsto r \; \; \; \have \: nsr := \lambda(r: R)(_ : \not S) \mapsto r \; \; \; \exact \lambda r \mapsto \langle sr r, nsr r \rangle$.}
+\end{itemize}
+
+
+\subsubsection*{Comments \& Questions}
+
+My question this week since we delved deeper into the world of lambda calculus is this: Since lambda calculus is a tool primarily used for function abstraction and fuction applications, is there a limit to what can be encoded within lambda calculus? Is there a point in which it struggles or, given enough time, could lambda calculus parse anything given the proper conditions and rules? I would assume the latter given infinite time, but if there is a more efficient method for certain calculations, I'd be interested to know how the computer parses those problems and what tools are used in the analyzing of such a function.
 
 \subsection{\ldots} 
 
