@@ -114,7 +114,8 @@ Do not change the template (fontsize, width of margin, spacing of lines, etc) wi
 
 \subsection{Week 1}
 
-Tuesday: Orientation and introduction to the course. \newline Thursday: First Lab on Tuesday's content.
+Tuesday: Orientation and introduction to the course. 
+\newline Thursday: First Lab on Tuesday's content.
 
 \subsubsection*{Notes and Homework}
 
@@ -184,7 +185,8 @@ In reference to the additional reading for this week, the dialogue \textit{Littl
 \subsection{Week 4}
 
 \subsubsection*{Notes \& Homework}
-Tuesday: Covering individuals projects from last week. Thursday: Learning to use Cursor and its various features. Progress on Assignment 1 and associated lab work.
+Tuesday: Covering individuals projects from last week. 
+\newline Thursday: Learning to use Cursor and its various features. Progress on Assignment 1 and associated lab work.
 
 Homework: Solve homework exercises in relation to parsing trees. Below, questions 1-5 are completed with specific solutions being in differing colors.
 
@@ -201,7 +203,7 @@ My question for this week centers around the ideas of parsing trees. How are par
 
 \subsubsection*{Notes \& Homework}
 Tuesday: Working on Assignment 2, due Wednesday. 
-Thursday: Begin $\wedge$ Tutorial: Party Invites. Solutions to levels 1-8 are listed below.
+\newline Thursday: Begin $\wedge$ Tutorial: Party Invites. Solutions to levels 1-8 are listed below.
 
 \begin{itemize}
   \item \texttt{World 1 Solution: $\exact todo\_list$.}
@@ -235,7 +237,8 @@ My question for this week pertains to the complexity of lean. As we progress thr
 \subsection{Week 6} 
 
 \subsubsection*{Notes \& Homework}
-Tuesday: We began to cover the ideas of lambda calculus, introducing some ideas for lambda parsing, as well as the Lean Logic levels on implications. Thursday: We continued to cover lambda calculus, specifically lambda abstraction and application. 
+Tuesday: We began to cover the ideas of lambda calculus, introducing some ideas for lambda parsing, as well as the Lean Logic levels on implications. 
+\newline Thursday: We continued to cover lambda calculus, specifically lambda abstraction and application. 
 
 \begin{itemize}
   \item \texttt{World 1 Solution: $\exact backery\_service p$.}
@@ -258,7 +261,8 @@ My question this week since we delved deeper into the world of lambda calculus i
 \subsection{Week 7}
 
 \subsubsection*{Notes \& Homework}
-Tuesday: We continued to cover ideas of lambda calculus and covered last weeks questions on discord. Thursday: We introduced the idea of church numerals, covered the weekly homework, and covered more lambda calculus calculations in class.
+Tuesday: We continued to cover ideas of lambda calculus and covered last weeks questions on discord. 
+\newline Thursday: We introduced the idea of church numerals, covered the weekly homework, and covered more lambda calculus calculations in class.
 
 The secondary aspect of the homework this week asked a question to explain the function on natural numbers $(\lambda m. \lambda n. m n)$ implements. It takes two functions $m$ and $n$ and applies $m$ to $n$. In relation to church numerals, the function represents addition between two listed functions. 
 
@@ -267,6 +271,92 @@ The secondary aspect of the homework this week asked a question to explain the f
 \subsubsection*{Comments \& Questions}
 
 With how we've covered church numerals in this homework and in class, my question this week is how quickly can these complex types of church numeral equations be calculated in a computer environment, and how high do equations like these tend to scale? Is there a better more preferential option for more complex equations or can this type of calculation be scaled to meet even the most complex forms of calculus?
+
+\subsection{Week 8 \& 9}
+
+\subsubsection{ Notes \& Homework}
+Tuesday: We introduced the third homework assignment, covering the premise as well as assigning partners for the project. We continued on with lambda calculus examples, furthering our knowledge of substitution and other important functions.
+\newline Thursday: We continued work on the code provided to us by our professors, executing steps one through nine as provided on Canvas.
+
+\begin{itemize}
+  \item Step 1: Not required for HW.
+  \item Step 2: I added these functions to the test.lc file: \texttt{
+    \newline $\lambda x.\lambda y.x$
+    \newline $\lambda x.\lambda y.y$
+    \newline $\lambda x.\lambda y.\lambda z.x z$
+    \newline $\lambda x.x x$
+    \newline $(\lambda x.x x)(\lambda x.x x)$}
+    \newline In addition to these new functions though, to answer the second part of step 2, the reason the expression $a\; b\; c\; d$ reduces to $(((a\; b)\;c)\;d)$ is because association between variables is always prioritized to the left!
+  \item Step 3: Capture avoid substitution works due to the interesting principle that variables in lambda calculus can be substituted for any other variable name so long as they are not bound in an equation. For instance, 
+        a funtion of x means the same thing as a function of a or a function of b. The variable's name has no extreme relevance unless the function dictates so through a different set of circumstances. 
+        \newline \newline Imagine for a moment the equation \texttt{$(\lambda x.(\lambda y.yx))$}. One could rewrite this equation to be \texttt{$(\lambda a.(\lambda b.ba))$}, and this would be a functional form of substitution.
+        However, if you took a closer look at the internal expression \texttt{$(\lambda y.yx)$}, one could say that this smaller function has a free variable $x$, meaning it isn't associated with any other lambda values in the 
+        expression.
+        \newline \newline Now though, if we took that internal expression and changed the $y$ variable to $x$ such as this, \texttt{$(\lambda x.xx)$}, our originally free variable x has now become captured by our variable name 
+        change, completely altering the expression. Therefore when substituting variables, we must perform Capture Avoiding Substitution as to avoid capturing these free variables and fundamentally altering the expression.
+        \newline \newline In our code provided to us, this is done with the function \texttt{NameGenerator}. Using variables passed to the function, it uses a counter to perpetually increase the number of variables passed through the function 
+        allowing for an incredible amount of increasing random variables attached to the string \texttt{Var}. When a function is passed into the interpreter and subsitution is neccesary, the output will more than likely 
+        contain the values \texttt{Var[i]}, where $i$ is the number of times the \texttt{NameGenerator} function has been called.
+  \item Step 4: The answer to this question is interesting because it almost feels like it was slightly spoiled by Step 5, but the answer is no. I do not always get what I expected when I input values due to functions 
+        that cannot be reduced to a normal form.
+  \item Step 5: The MWE, or Minimum Working Expression value that I found is \texttt{$(\lambda x.x x)(\lambda x.x x)$}, which was also a function provided to us in the Church Encodings information file we covered in class.
+        When executed, the function will return itself over and over and over again in an infinite loop of recursion until a check is made stopping the function from running infinitly. 
+  \item Step 6: This step is not required for the HW.
+  \item Step 7: Upon the execution of the function \texttt{$((\lambda m.\lambda n. m n) (\lambda f.\lambda x. f (f x))) (\lambda f.\lambda x. f (f (f x)))$}, 
+        the output \texttt{$(\lambda Var3.(\lambda Var5.(Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 Var5)))))))))))$} is produced.
+        \newline \newline For my output that I recieved from looking at the debugger for steps 7 \& 8, I wondered if I would recieve different output due to my modifications to my \texttt{evaluate} function 
+        prior to completing these steps. I beleive that I do have very different output, but following the instructions to the best of my ability, below are the responses I recieved for Step 7:
+        \begin{itemize}
+        \item \texttt{$('lam', 'Var1', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x'))))), ('var', 'Var1')))$}
+        \item \texttt{$('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2'))))$}
+        \item \texttt{$('lam', 'Var1', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x'))))), ('var', 'Var1')))$}
+        \item \texttt{$('lam', 'Var3', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), ('var', 'Var3'))))$}
+        \item \texttt{$('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4')))))$}
+        \item \texttt{$('lam', 'Var5', ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('var', 'Var5')))))$}
+        \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var5'))))$}
+        \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('var', 'Var5')))))))$}
+        \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var5'))))))))))$}
+        \item \texttt{$('lam', 'Var5', ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('var', 'Var5')))))$}
+        \item \texttt{$('lam', 'Var3', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('var', 'Var3'))))$}
+        \item \texttt{Result: $(\lambda Var3.(\lambda Var5.(Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3\; Var5)))))))))))$}
+        \end{itemize}
+  \item Step 8: Similar to step seven, due to my alterations to the \texttt{evaluate} function, my code below is split into my two instances of the \texttt{evaluate} function and their associated outputs.
+        \begin{itemize}
+        \item \texttt{e1 = $('var', 'm')$, e2 = $('var', 'n')$}
+        \item \texttt{e1 = $('var', 'f')$, e2 = $('var', 'x')$}
+        \item \texttt{e1 = $('lam', 'm', ('lam', 'n', ('app', ('var', 'm'), ('var', 'n'))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))$}
+        \item \texttt{e1 = $('var', 'Var1')$, e2 = $('var', 'Var2')$}
+        \item \texttt{e1 = $('lam', 'm', ('lam', 'n', ('app', ('var', 'm'), ('var', 'n'))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))$}
+        \item \texttt{e1 = $('lam', 'Var1', ('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2')))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$}
+        \item \texttt{e1 = $('var', 'f')$, e2 $('var', 'x')$}
+        \item \texttt{e1 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$, e2 = $('var', 'Var3')$}
+        \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var4')$}
+        \item \texttt{e1 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$, \newline e2 = $('lam', 'Var4', ('app', ('var', 'Var3'), ('var', 'Var4')))$}
+        \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var4')$}
+        \item \texttt{e1 = $('lam', 'Var4', ('app', ('var', 'Var3'), ('var', 'Var4')))$, e2 = $('var', 'Var5')$}
+        \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var5')$}
+        \item \texttt{e1 = $('lam', 'Var1', ('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2')))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$}
+        \item \texttt{Result: $(\lambda Var3.(\lambda Var5.(Var3\; Var5)))$}
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{Comments \& Questions}
+My question for week 8 is how have the use cases for lambda calculus evolved over its existence? What was it originally designed for? What is it primaraly used for now? Are those answers different, and if so, when did they branch?
+\newline \newline My Question for week 9 is given that there are certain equations that do not reduce to a normal form like the MWE, what are other examples of functions that do not reduce to a normal form, and what do we do with said functions? What do they represent in a math context similar to standard calculus?
+
+\subsection{Week 10}
+
+\subsubsection{Notes}
+Tuesday: As we were granted an extension on the homework and programming assignment for weeks 8 \& 9, we continued learning about lambda calculus and its various types of functions. \newline Thursday I was unfortunetly absent from the class, but I continued working on the programming assignments and assoicated homework assignments. 
+
+\subsubsection{Homework}
+What I found most challenging about working through homeworks 8 \& 9 was the pieces of the homework regarding debugging. Since I did the homework a little out of order, I was unfortunetly graced with a significantly larger debugging task than I would have otherwise encountered due to my recursive setup to solve the Assignment3 premise.
+\newline \newline My solution to said problem was discovered after some experimentation with the evaluate function. After some initial trial and error, I was only able to successfully reduce half of a large inputed expression to a desired normal form. It was then I went down the thought path of beta-reducing both halves of a large expression in order to calculate a properly reduced outcome, which yielded correct results upon several tested executions.
+\newline \newline I really enjoyed working on this programming assignment as it proved to me once again that I tend to get in my own head with certain challenges. This programming assignment was one that I though would be significantly difficult, especially due to the fact that I was working alone. However, upon discovering a possible method of execution for the programming assignment, I found that I was able to create a solid solution in a timely manner. This assignment is a nice reminder to myself that I know more than I tend to give myself credit for, and to be confident in the material that I know.
+
+\subsubsection{Comments \& Questions}
+
+My question for this week revoles around the bubble sort method covered last session on Thursday. For all the sorted values leading to successfully calculated normal forms, is there any way to affect the efficiency of the sorting algorithm? Assuming that a successful conversion of a function to normal form is a success, how can we guarantee mass conversion rates to normal form to boost a positive efficiency rate?
 
 \subsection{\ldots} 
 
