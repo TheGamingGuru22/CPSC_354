@@ -1,0 +1,32 @@
+?start: exp
+
+?exp: "\\" NAME "." exp             -> lam
+     | exp1
+
+?exp1: exp1 "+" exp2                -> plus
+     | exp1 "-" exp2                -> minus
+     | exp2
+
+?exp2: exp2 "*" exp3                -> times
+     | exp2 "/" exp3                -> divide
+     | exp3
+
+?exp3: exp3 "^" exp4                -> power
+     | exp4
+
+?exp4: "-" exp4                     -> neg
+     | exp5
+
+?exp5: exp5 exp6                    -> app
+     | exp6
+
+?exp6: "log" "(" exp ")" "base" "(" exp ")"  -> log_base
+     | NUMBER                        -> num
+     | NAME                          -> var
+     | "(" exp ")"
+
+%import common.CNAME -> NAME
+%import common.SIGNED_NUMBER -> NUMBER
+%import common.WS_INLINE
+
+%ignore WS_INLINE
