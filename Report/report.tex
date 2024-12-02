@@ -386,6 +386,37 @@ Thursday: We were introduced to milestone 2 of the fourth programming assingment
 
 \subsubsection{Comments \& Questions}
 My question for this week is: What are ways to reduce the likelyhood of there being a non-terminating result when creating an ARS, and how common is it when creating an ARS to find a terminating result where one wasn't expected? 
+
+\subsection{Week 13}
+\subsubsection{Notes \& Homework}
+
+Tuesday: We began to investigate the idea of method functions, functions of assigning such as let, functions to help compute recursion, as well as if and else statements.
+\newline
+Thursday: We were assigned homework 13 to compute the factorial of 3 utilizng lambda calculus. We spend the majority of the class time working on the homework.
+
+\begin{itemize}
+  \item \texttt{$let \; rec \; fact = \lambda n. if n = 0 \; then \; 1 \; else \; n * fact (n-1) \; in \; fact \; 3$}
+  \item \texttt{$-> let \; fact \; = \; fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1)) \; in \; fact \; 3$}
+  \item \texttt{$-> (fix \;(\lambda fact. \lambda n. \; if \; n \; = \; 0 \; then \;1 \; else \; n \; * \; fact \;(n-1))) \;3$}
+  \item \texttt{$-> (\lambda fact. \lambda n. if \; n=0 \; then \;1 \; else \; n*fact \; (n-1)) \; (fix \; (\lambda fact. \lambda n. if \; n=0 \; then \; 1 \; else \; n*fact \; (n-1))) \; 3$}
+  \item \texttt{$-> (\lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n*(fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (n-1)) \; 3$}
+  \item \texttt{$-> if \; 3 \; = \; 0 \; then \; 1 \; else \; 3 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (3-1)$}
+  \item \texttt{$-> 3 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; 2$}
+  \item \texttt{$-> 3 \; * \; (\lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (n-1)) \; 2$}
+  \item \texttt{$-> 3 \; * \; (if \; 2 \; = \; 0 \; then \; 1 \; else \; 2 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (2-1))$}
+  \item \texttt{$-> 3 \; * \; (2 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \:0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; 1)$}
+  \item \texttt{$-> 3 \; * \; (2 \; * \; (\lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (n-1)) \; 1)$}
+  \item \texttt{$-> 3 \; * (2 \; * \; (1 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; 0))$}
+  \item \texttt{$-> 3 \; * \; (2 \; * \;(1 \; * \; (if \; 0 \; = \; 0 \; then \; 1 \; else \; 0 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (0-1))))$}
+  \item \texttt{$-> 3 \; * \; (2 \; * \; (1 \; * \; 1))$}
+  \item \texttt{$-> 3 \; * \; 2$}
+  \item \texttt{$-> \; 6$}
+\end{itemize}
+
+\subsubsection{Comments \& Questions}
+
+My question for this week: Given the emphasis on recursion in the homework, as functions tend to expand as they did in reference to the factorial function we needed to compute, they become increasingly harder and harder to keep track of with the human eye, but computers do not have this problem as far as I am aware. If there is such a threshold where computers begin to experience problems with keeping track of such large expressions, what defines that point? Is it standard accross all computers or is it based on specific components that would be diffrent across computers?
+
 \subsection{\ldots} 
 
 \ldots
