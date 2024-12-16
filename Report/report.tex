@@ -113,330 +113,522 @@ Do not change the template (fontsize, width of margin, spacing of lines, etc) wi
 \section{Week by Week}\label{homework}
 
 \subsection{Week 1}
-
-Tuesday: Orientation and introduction to the course. 
-\newline Thursday: First Lab on Tuesday's content.
+  Tuesday: Orientation and introduction to the course. 
+  \newline Thursday: First Lab on Tuesday's content.
 
 \subsubsection{Notes and Homework}
+  Our homework for this week was to finish levels 5-8 of the tutorial world inside the Natural Numbers Game provided to us in class. On Tuesday of week 1, we went over the game in basic detail, covering levels 1-4 as to become used to the website so we could begin our first challenge. The solutions to each of the worlds can be found below in an itemized format.
 
-Our homework for this week was to finish levels 5-8 of the tutorial world inside the Natural Numbers Game provided to us in class. On Tuesday of week 1, we went over the game in basic detail, covering levels 1-4 as to become used to the website so we could begin our first challenge. The solutions to each of the worlds can be found below in an itemized format.
+\subsubsection*{World 5 Solution:}
+  \begin{lstlisting}
+    rw[add_zero]
+    rw[add_zero]
+    rfl
+  \end{lstlisting}
+  \subsubsection*{World 6 Solution:}
+  \begin{lstlisting}
+    rw[add_zero c]
+    rw[add_zero b]
+    rfl
+  \end{lstlisting}
+  \subsubsection*{World 7 Solution:}
+  \begin{lstlisting}
+    rw[one_eq_succ_zero]
+    rw[add_succ]
+    rw[add_zero]
+    rfl
+  \end{lstlisting}
+  \subsubsection*{World 8 Solution:}
+  \begin{lstlisting}
+    rw[two_eq_succ_one, one_eq_succ_zero]
+    rw[add_succ], rw[add_zero], rw[<- one_eq_succ_zero <- two_eq_succ_one, <- three_eq_succ_two, <- four_eq_succ_three]
+  \end{lstlisting}
+  
+ \subsubsection*{Detailed World 5 Solution:}
+    World 5's solutition is to rewrite the equation by adding zero onto a variable \textbf{b} or \textbf{c}, and as we know from a descrete math proof described as $\forall n \in N,n+0=n$, adding zero to any number provides the same equivalent number. This becomes useful later in sections seven and eight when we begin dealing with adding zero to successor values. 
 
-\begin{itemize}
-  \item \texttt{World 5 Solution: rw[\,add\_zero]\,, rw[\,add\_zero]\,, rfl.}
-  \item \texttt{World 6 Solution: rw[\,add\_zero c]\,, rw[\,add\_zero b]\,, rfl.}
-  \item \texttt{World 7 Solution: rw[\,one\_eq\_succ\_zero]\,, rw[\,add\_succ]\,, rw[\,add\_zero]\,, rfl.}
-  \item \texttt{World 8 Solution: rw[\,two\_eq\_succ\_one, one\_eq\_succ\_zero]\,, rw[\,add\_succ]\,, rw[\,add\_zero]\,, rw[\,<- one\_eq\_succ\_zero, <- two\_eq\_succ\_one, <- three\_eq\_succ\_two, <- four\_eq\_succ\_three]\,}
-\end{itemize}
-
-World 5's solutition is to rewrite the equation by adding zero onto a variable \textbf{b} or \textbf{c}, and as we know from a descrete math proof described as $\forall n \in N,n+0=n$, adding zero to any number provides the same equivalent number. This becomes useful later in sections seven and eight when we begin dealing with adding zero to successor values. 
-
-%In case you want to draw automata in Latex, you can use the tikz %package. Here is an example of a simple automaton:
-%
-%\begin{tikzpicture}[shorten >=1pt,node distance=2cm,on grid,auto] 
-%  \node[state] (q_1)   {$q_1$}; 
-%  \node[state] (q_2) [above right=of q_1] {$q_2$}; 
-%  \node[state] (q_3) [below right=of q_2] {$q_3$}; 
-%   \path[->] 
-%   (q_1) edge  node {0} (q_2)
-%         edge  node [swap] {1} (q_3)
-%   (q_2) edge  node  {1} (q_3)
-%         edge [loop above] node {0} ()
-%   (q_3) edge [loop below] node {0,1} ();
-%\end{tikzpicture}
-%
-%By the way, GPT-4 is quite good at outputting tikz code.
 
 \subsubsection{Comments and Questions}
-
-Looking at Discrete Math over the past few days and getting a refresher on the course since I took it a few semesters ago has been very interesting. I have enjoyed the tutorial levels of the Natural Numbers Game, and I particularly enjoyed their explanations for the proofs and early concepts for Discrete Math. Had I known about this website when I was taking the course, I have a feeling it would have been a great resource to support my understanding of those proofs and other concepts. 
-
-My question then in relation to discrete mathematics comes more so with how we utilize those proofs on paper verses when they are used in a computational environment. For example, writing a Discrete Math proof can often take a significant amount of time and paper to create, depending of course on the operation. For something as simple as addition or multiplication, using the proofs outlined in Discrete Math can turn a simple problem, such as $2*(3+2+4)$, into a massive multi-page proof. However, when a computer runs such a problem, it concludes the correct answer in an astoundingly short amount of time.
-
-My question is then, what is the largest, hardest, and most difficult proof a person could do by hand that can be done in seconds by a machine?\footnote{It is important to learn to ask \emph{interesting} questions. There is no precise way of defining what is meant by interesting. You can only learn this by doing. An interesting question comes typically in two parts. Part 1 (one or two sentences) sets the scene. Part 2 (one or two sentences) asks the question. A good question strikes the right balance between being specific and technical on the one hand and open ended on the other hand. A question that can be answered with yes/no is not an interesing question.}
+  Looking at Discrete Math over the past few days and getting a refresher on the course since I took it a few semesters ago has been very interesting. I have enjoyed the tutorial levels of the Natural Numbers Game, and I particularly enjoyed their explanations for the proofs and early concepts for Discrete Math. Had I known about this website when I was taking the course, I have a feeling it would have been a great resource to support my understanding of those proofs and other concepts. 
+  \newline My question then in relation to discrete mathematics comes more so with how we utilize those proofs on paper verses when they are used in a computational environment. For example, writing a Discrete Math proof can often take a significant amount of time and paper to create, depending of course on the operation. For something as simple as addition or multiplication, using the proofs outlined in Discrete Math can turn a simple problem, such as $2*(3+2+4)$, into a massive multi-page proof. However, when a computer runs such a problem, it concludes the correct answer in an astoundingly short amount of time.
+  \newline My question is then, what is the largest, hardest, and most difficult proof a person could do by hand that can be done in seconds by a machine?\footnote{It is important to learn to ask \emph{interesting} questions. There is no precise way of defining what is meant by interesting. You can only learn this by doing. An interesting question comes typically in two parts. Part 1 (one or two sentences) sets the scene. Part 2 (one or two sentences) asks the question. A good question strikes the right balance between being specific and technical on the one hand and open ended on the other hand. A question that can be answered with yes/no is not an interesing question.}
 
 \subsection{Week 2}
-
-Tuesday: What is a proposition? Covering Eric Villanueva's question "I wonder how the computer or code implements the logic we have in understanding discrete mathematics to make computtations. How do we define the idea of successors so that the computer knows how to carry out calculations?"
-
-\subsubsection{Notes and Homework}
-
-\begin{itemize}
-  \item \texttt{World 1 Solution: Induction n with d, rw[\,add\_zero]\,, rfl, rw[\,succ\_eq\_add\_one]\,, rw[\,one\_eq\_succ\_zero]\,, rw[\,add\_zero]\,, rw[\,add\_succ]\,, rw[\,n\_ih]\,, rfl.}
-  \item \texttt{World 2 Solution: Induction b with d hd, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,hd]\,, rfl.}
-  \item \texttt{World 3 Solution: Induction b with b hb, rw[\,add\_zero, zero\_add]\,, rfl, rw[\,add\_succ, succ\_add, hb]\,, rfl.}
-  \item \texttt{World 4 Solution: Induction c with c hc, rw[\,add\_zero]\,, rw[add\_zero]\,, rfl, rw[\,add\_succ]\,, rw[\,add\_succ]\,, rw[\,hc]\,, rfl.}
-  \item \texttt{World 5 Solution: Induction c with c hc, rw[\,add\_zero, add\_zero]\,, rfl, rw[\,add\_succ, add\_succ]\,, rw[\,succ\_add]\,, rw[\,hc]\,, rfl.}
-\end{itemize}
-
-World 5's solution is to discover the add\_right\_comm function through other theorems we are already familier with. Utilizing several Lean theorems, such as \texttt{rw[\,add\_succ]\,, rw[\,add\_zero]\,}, and proving by indcution, we can rewrite $a+b+c = a+c+b$ into $\successor (a+c+b) = \successor  (a+c+b)$. Proving this fact using standard mathematics follows a similar set of rules as well. Should you aim to prove by induction, you can then add zeros and use reflexivity to reconstruct an equation to prove add\_right\_comm.
-
-
-\subsubsection{Comments \& Questions}
-
-In reference to the additional reading for this week, the dialogue \textit{Little Harmonic Labrinth}, it describes recursion in a much more palatable format. Essentially, you have an item operating within itself endlessly. This concept is very useful as a time saver when it comes to certain coding tasks, but my question in relation to recursion is; How can recursion be optimized in a computer environment as to be effective without running out of resources in relation to large tasks? 
-
-\subsection{Week 3}
-
-\subsubsection{Notes \& Homework}
-
-\subsubsection{Comments \& Questions}
-
-
-\subsection{Week 4}
-
-\subsubsection{Notes \& Homework}
-Tuesday: Covering individuals projects from last week. 
-\newline Thursday: Learning to use Cursor and its various features. Progress on Assignment 1 and associated lab work.
-
-Homework: Solve homework exercises in relation to parsing trees. Below, questions 1-5 are completed with specific solutions being in differing colors.
-
-
-\graphicspath{ {C:/Users/jrmul/OneDrive/Documents/CPSC_Courses/CPSC_354/images/} }
-\begin{center} \includegraphics[width=0.5\textwidth]{HW4_Solutions} \end{center}
-
-\subsubsection{Comments \& Questions}
-
-My question for this week centers around the ideas of parsing trees. How are parsing trees best utilized when in a coding environment? They seem very useful for mathematical equations and logical reasoning, but I am unsure of how they would be useful when programming.
-
-
-\subsection{Week 5}
-
-\subsubsection{Notes \& Homework}
-Tuesday: Working on Assignment 2, due Wednesday. 
-\newline Thursday: Begin $\wedge$ Tutorial: Party Invites. Solutions to levels 1-8 are listed below.
-
-\begin{itemize}
-  \item \texttt{World 1 Solution: $\exact todo\_list$.}
-  \item \texttt{World 2 Solution: $\exact \langle p, s \rangle$.}
-  \item \texttt{World 3 Solution: $\have ai := and\_intro a i, have ou := and\_intro o u, exact \langle ai, ou \rangle$.}
-  \item \texttt{World 4 Solution: $\exact \andLeft vm$.}
-  \item \texttt{World 5 Solution: $\exact \andRight h$.}
-  \item \texttt{World 6 Solution: $\exact \langle h1.left, h2.right \rangle$.}
-  \item \texttt{World 7 Solution: $\have h1 := h.left, \have h2 := h.right, \have h3 := h2.left, \have h4 := h3.left, \exact h4.right$.}
-  \item \texttt{World 8 Solution: $\have h1 := h.left, \have a := h1.right, \have b := h1.left, \have h2 := h.right, \have h3 := h2.right, \have h4 := h3.left, \have c := h4.left, \exact \langle a, b, c\rangle$.}
-\end{itemize}
-
-The solution for world 8 written in mathematical logic goes as follows: 
-
-\begin{itemize}
-  \item Assume $h=((P \wedge S) \wedge A) \wedge \not I \wedge (C \wedge \not O) \wedge \not U$
-  \item $h1 = (P \wedge S) \wedge A$ and\_left on h $(1)$
-  \item $a = A$ and\_right on h1 $(2)$
-  \item $b = P \wedge S, $ and\_left on h1 $(3)$ 
-  \item $h2 = \not I \wedge (C \wedge \not O) \wedge \not U$ and\_right on h $(4)$
-  \item $h3 = (C \wedge \not O) \wedge \not U, $ and\_right on h2 $(5)$
-  \item $h4 = C \wedge \not O, $ and\_left on h3 $(6)$
-  \item $c = C, $ and\_left on h4 $(7)$
-  \item $A \wedge C \wedge P \wedge S$ $(8)$
-\end{itemize}
-
-\subsubsection{Comments \& Questions}
-My question for this week pertains to the complexity of lean. As we progress through different worlds of the game, the harder and more complex the problems we have to solve, especially on boss levels, where combinations from prior levels are brought together to make one much more challenging level. In math however, items that are significantly more complex than simple logic proofs or basic arithmetic exist. How then does Lean simplify complex math down into assumed proofs for much larger and complex equations or logic proofs, and what problems take longer to solve using a Lean logic rather than standard math or coding logic?
-
-
-\subsection{Week 6} 
-
-\subsubsection{Notes \& Homework}
-Tuesday: We began to cover the ideas of lambda calculus, introducing some ideas for lambda parsing, as well as the Lean Logic levels on implications. 
-\newline Thursday: We continued to cover lambda calculus, specifically lambda abstraction and application. 
-
-\begin{itemize}
-  \item \texttt{World 1 Solution: $\exact backery\_service p$.}
-  \item \texttt{World 2 Solution: $\exact \lambda(h : C) \mapsto h$.}
-  \item \texttt{World 3 Solution: $\exact \lambda h : I \wedge S \mapsto \andIntro (\andRight \; h) \; h.left$.}
-  \item \texttt{World 4 Solution: $\exact h1 >> h2$.}
-  \item \texttt{World 5 Solution: $\have step1 := h1 >> h3$.}
-  \item \texttt{World 6 Solution: $\exact \lambda c \mapsto \andIntro c >> h$.}
-  \item \texttt{World 7 Solution: $\exact \lambda(cd: C \wedge D) \mapsto h \; cd.left \; cd.right$.}
-  \item \texttt{World 8 Solution: $\exact \lambda(s : S) \mapsto \andIntro (h.left \; s) (h.right \; s)$.}
-  \item \texttt{World 9 Solution: $\have \: sr := \lambda(r: R)(_ : S) \mapsto r \; \; \; \have \: nsr := \lambda(r: R)(_ : \not S) \mapsto r \; \; \; \exact \lambda r \mapsto \langle sr r, nsr r \rangle$.}
-\end{itemize}
-
-
-\subsubsection{Comments \& Questions}
-
-My question this week since we delved deeper into the world of lambda calculus is this: Since lambda calculus is a tool primarily used for function abstraction and fuction applications, is there a limit to what can be encoded within lambda calculus? Is there a point in which it struggles or, given enough time, could lambda calculus parse anything given the proper conditions and rules? I would assume the latter given infinite time, but if there is a more efficient method for certain calculations, I'd be interested to know how the computer parses those problems and what tools are used in the analyzing of such a function.
-
-
-\subsection{Week 7}
-
-\subsubsection{Notes \& Homework}
-Tuesday: We continued to cover ideas of lambda calculus and covered last weeks questions on discord. 
-\newline Thursday: We introduced the idea of church numerals, covered the weekly homework, and covered more lambda calculus calculations in class.
-
-The secondary aspect of the homework this week asked a question to explain the function on natural numbers $(\lambda m. \lambda n. m n)$ implements. It takes two functions $m$ and $n$ and applies $m$ to $n$. In relation to church numerals, the function represents addition between two listed functions. 
-
-\begin{center} \includegraphics[width=0.7\textwidth]{HW7_Solutions} \end{center}
-
-\subsubsection{Comments \& Questions}
-
-With how we've covered church numerals in this homework and in class, my question this week is how quickly can these complex types of church numeral equations be calculated in a computer environment, and how high do equations like these tend to scale? Is there a better more preferential option for more complex equations or can this type of calculation be scaled to meet even the most complex forms of calculus?
-
-\subsection{Week 8 \& 9}
-
-\subsubsection{ Notes \& Homework}
-Tuesday: We introduced the third homework assignment, covering the premise as well as assigning partners for the project. We continued on with lambda calculus examples, furthering our knowledge of substitution and other important functions.
-\newline Thursday: We continued work on the code provided to us by our professors, executing steps one through nine as provided on Canvas.
-
-\begin{itemize}
-  \item Step 1: Not required for HW.
-  \item Step 2: I added these functions to the test.lc file: \texttt{
-    \newline $\lambda x.\lambda y.x$
-    \newline $\lambda x.\lambda y.y$
-    \newline $\lambda x.\lambda y.\lambda z.x z$
-    \newline $\lambda x.x x$
-    \newline $(\lambda x.x x)(\lambda x.x x)$}
-    \newline In addition to these new functions though, to answer the second part of step 2, the reason the expression $a\; b\; c\; d$ reduces to $(((a\; b)\;c)\;d)$ is because association between variables is always prioritized to the left!
-  \item Step 3: Capture avoid substitution works due to the interesting principle that variables in lambda calculus can be substituted for any other variable name so long as they are not bound in an equation. For instance, 
-        a funtion of x means the same thing as a function of a or a function of b. The variable's name has no extreme relevance unless the function dictates so through a different set of circumstances. 
-        \newline \newline Imagine for a moment the equation \texttt{$(\lambda x.(\lambda y.yx))$}. One could rewrite this equation to be \texttt{$(\lambda a.(\lambda b.ba))$}, and this would be a functional form of substitution.
-        However, if you took a closer look at the internal expression \texttt{$(\lambda y.yx)$}, one could say that this smaller function has a free variable $x$, meaning it isn't associated with any other lambda values in the 
-        expression.
-        \newline \newline Now though, if we took that internal expression and changed the $y$ variable to $x$ such as this, \texttt{$(\lambda x.xx)$}, our originally free variable x has now become captured by our variable name 
-        change, completely altering the expression. Therefore when substituting variables, we must perform Capture Avoiding Substitution as to avoid capturing these free variables and fundamentally altering the expression.
-        \newline \newline In our code provided to us, this is done with the function \texttt{NameGenerator}. Using variables passed to the function, it uses a counter to perpetually increase the number of variables passed through the function 
-        allowing for an incredible amount of increasing random variables attached to the string \texttt{Var}. When a function is passed into the interpreter and subsitution is neccesary, the output will more than likely 
-        contain the values \texttt{Var[i]}, where $i$ is the number of times the \texttt{NameGenerator} function has been called.
-  \item Step 4: The answer to this question is interesting because it almost feels like it was slightly spoiled by Step 5, but the answer is no. I do not always get what I expected when I input values due to functions 
-        that cannot be reduced to a normal form.
-  \item Step 5: The MWE, or Minimum Working Expression value that I found is \texttt{$(\lambda x.x x)(\lambda x.x x)$}, which was also a function provided to us in the Church Encodings information file we covered in class.
-        When executed, the function will return itself over and over and over again in an infinite loop of recursion until a check is made stopping the function from running infinitly. 
-  \item Step 6: This step is not required for the HW.
-  \item Step 7: Upon the execution of the function \texttt{$((\lambda m.\lambda n. m n) (\lambda f.\lambda x. f (f x))) (\lambda f.\lambda x. f (f (f x)))$}, 
-        the output \texttt{$(\lambda Var3.(\lambda Var5.(Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 Var5)))))))))))$} is produced.
-        \newline \newline For my output that I recieved from looking at the debugger for steps 7 \& 8, I wondered if I would recieve different output due to my modifications to my \texttt{evaluate} function 
-        prior to completing these steps. I beleive that I do have very different output, but following the instructions to the best of my ability, below are the responses I recieved for Step 7:
-        \begin{itemize}
-        \item \texttt{$('lam', 'Var1', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x'))))), ('var', 'Var1')))$}
-        \item \texttt{$('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2'))))$}
-        \item \texttt{$('lam', 'Var1', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x'))))), ('var', 'Var1')))$}
-        \item \texttt{$('lam', 'Var3', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), ('var', 'Var3'))))$}
-        \item \texttt{$('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4')))))$}
-        \item \texttt{$('lam', 'Var5', ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('var', 'Var5')))))$}
-        \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var5'))))$}
-        \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('var', 'Var5')))))))$}
-        \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var5'))))))))))$}
-        \item \texttt{$('lam', 'Var5', ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('var', 'Var5')))))$}
-        \item \texttt{$('lam', 'Var3', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('var', 'Var3'))))$}
-        \item \texttt{Result: $(\lambda Var3.(\lambda Var5.(Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3\; Var5)))))))))))$}
-        \end{itemize}
-  \item Step 8: Similar to step seven, due to my alterations to the \texttt{evaluate} function, my code below is split into my two instances of the \texttt{evaluate} function and their associated outputs.
-        \begin{itemize}
-        \item \texttt{e1 = $('var', 'm')$, e2 = $('var', 'n')$}
-        \item \texttt{e1 = $('var', 'f')$, e2 = $('var', 'x')$}
-        \item \texttt{e1 = $('lam', 'm', ('lam', 'n', ('app', ('var', 'm'), ('var', 'n'))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))$}
-        \item \texttt{e1 = $('var', 'Var1')$, e2 = $('var', 'Var2')$}
-        \item \texttt{e1 = $('lam', 'm', ('lam', 'n', ('app', ('var', 'm'), ('var', 'n'))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))$}
-        \item \texttt{e1 = $('lam', 'Var1', ('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2')))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$}
-        \item \texttt{e1 = $('var', 'f')$, e2 $('var', 'x')$}
-        \item \texttt{e1 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$, e2 = $('var', 'Var3')$}
-        \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var4')$}
-        \item \texttt{e1 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$, \newline e2 = $('lam', 'Var4', ('app', ('var', 'Var3'), ('var', 'Var4')))$}
-        \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var4')$}
-        \item \texttt{e1 = $('lam', 'Var4', ('app', ('var', 'Var3'), ('var', 'Var4')))$, e2 = $('var', 'Var5')$}
-        \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var5')$}
-        \item \texttt{e1 = $('lam', 'Var1', ('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2')))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$}
-        \item \texttt{Result: $(\lambda Var3.(\lambda Var5.(Var3\; Var5)))$}
-        \end{itemize}
-\end{itemize}
-
-\subsubsection{Comments \& Questions}
-My question for week 8 is how have the use cases for lambda calculus evolved over its existence? What was it originally designed for? What is it primaraly used for now? Are those answers different, and if so, when did they branch?
-\newline \newline My Question for week 9 is given that there are certain equations that do not reduce to a normal form like the MWE, what are other examples of functions that do not reduce to a normal form, and what do we do with said functions? What do they represent in a math context similar to standard calculus?
-
-\subsection{Week 10}
-
-\subsubsection{Notes}
-Tuesday: As we were granted an extension on the homework and programming assignment for weeks 8 \& 9, we continued learning about lambda calculus and its various types of functions. \newline Thursday: I was unfortunetly absent from the class, but I continued working on the programming assignments and assoicated homework assignments. Looking at the posted notes, what was covered in class was further examples of ARS termination as well as an introduction to sorting algorithms through Bubble Sort experimentation.
-
-\subsubsection{Homework}
-What I found most challenging about working through homeworks 8 \& 9 was the pieces of the homework regarding debugging. Since I did the homework a little out of order, I was unfortunetly graced with a significantly larger debugging task than I would have otherwise encountered due to my recursive setup to solve the Assignment3 premise.
-\newline \newline My solution to said problem was discovered after some experimentation with the evaluate function. After some initial trial and error, I was only able to successfully reduce half of a large inputed expression to a desired normal form. It was then I went down the thought path of beta-reducing both halves of a large expression in order to calculate a properly reduced outcome, which yielded correct results upon several tested executions.
-\newline \newline I really enjoyed working on this programming assignment as it proved to me once again that I tend to get in my own head with certain challenges. This programming assignment was one that I though would be significantly difficult, especially due to the fact that I was working alone. However, upon discovering a possible method of execution for the programming assignment, I found that I was able to create a solid solution in a timely manner. This assignment is a nice reminder to myself that I know more than I tend to give myself credit for, and to be confident in the material that I know.
-
-\subsubsection{Comments \& Questions}
-
-My question for this week revoles around the bubble sort method covered last session on Thursday. For all the sorted values leading to successfully calculated normal forms, is there any way to affect the efficiency of the sorting algorithm? Assuming that a successful conversion of a function to normal form is a success, how can we guarantee mass conversion rates to normal form to boost a positive efficiency rate?
-
-\subsection{Week 11}
-
-\subsubsection{Notes \& Homework}
-
-Tuesday: We began identifying ARS's and constructing various forms of them under certain criteria of either confluent, terminating, or possesing a unique normal form. Below is my rendition of the homework for this week.
-
-\graphicspath{ {C:/Users/jrmul/OneDrive/Documents/CPSC_Courses/CPSC_354/images/} }
-\begin{center} \includegraphics[width=0.8\textwidth]{HW11_Solutions} \end{center}
-
-\subsubsection{Comments \& Questions}
-
-My question for this week in relation to ARS's is how can they be used in practical computation? Are they used as a simplification method or are they used in calculations or other forms of connectivity? 
-
-\subsection{Week 12}
-
-\subsubsection{Notes}
-Tuesday: We continued review on ARS's, specifically with rules of confluence, termination, and unique normal forms with regards to rewriting rules.
-\newline
-Thursday: We were introduced to milestone 2 of the fourth programming assingment as well as the continuation of learning about ARS's.
-
-\subsubsection{Homework}
-\graphicspath{ {C:/Users/jrmul/OneDrive/Documents/CPSC_Courses/CPSC_354/images/} }
-\begin{center} \includegraphics[width=0.8\textwidth]{HW12_Solution1} \end{center}
-\begin{center} \includegraphics[width=0.8\textwidth]{HW12_Solution2} \end{center}
-\begin{center} \includegraphics[width=0.8\textwidth]{HW12_Solution3} \end{center}
-
-\subsubsection{Comments \& Questions}
-My question for this week is: What are ways to reduce the likelyhood of there being a non-terminating result when creating an ARS, and how common is it when creating an ARS to find a terminating result where one wasn't expected? 
-
-\subsection{Week 13}
-\subsubsection{Notes \& Homework}
-
-Tuesday: We began to investigate the idea of method functions, functions of assigning such as let, functions to help compute recursion, as well as if and else statements.
-\newline
-Thursday: We were assigned homework 13 to compute the factorial of 3 utilizng lambda calculus. We spend the majority of the class time working on the homework.
-
-\begin{itemize}
-  \item \texttt{$let \; rec \; fact = \lambda n. if n = 0 \; then \; 1 \; else \; n * fact (n-1) \; in \; fact \; 3$}
-  \item \texttt{$-> let \; fact \; = \; fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1)) \; in \; fact \; 3$}
-  \item \texttt{$-> (fix \;(\lambda fact. \lambda n. \; if \; n \; = \; 0 \; then \;1 \; else \; n \; * \; fact \;(n-1))) \;3$}
-  \item \texttt{$-> (\lambda fact. \lambda n. if \; n=0 \; then \;1 \; else \; n*fact \; (n-1)) \; (fix \; (\lambda fact. \lambda n. if \; n=0 \; then \; 1 \; else \; n*fact \; (n-1))) \; 3$}
-  \item \texttt{$-> (\lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n*(fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (n-1)) \; 3$}
-  \item \texttt{$-> if \; 3 \; = \; 0 \; then \; 1 \; else \; 3 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (3-1)$}
-  \item \texttt{$-> 3 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; 2$}
-  \item \texttt{$-> 3 \; * \; (\lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (n-1)) \; 2$}
-  \item \texttt{$-> 3 \; * \; (if \; 2 \; = \; 0 \; then \; 1 \; else \; 2 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (2-1))$}
-  \item \texttt{$-> 3 \; * \; (2 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \:0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; 1)$}
-  \item \texttt{$-> 3 \; * \; (2 \; * \; (\lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (n-1)) \; 1)$}
-  \item \texttt{$-> 3 \; * (2 \; * \; (1 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; 0))$}
-  \item \texttt{$-> 3 \; * \; (2 \; * \;(1 \; * \; (if \; 0 \; = \; 0 \; then \; 1 \; else \; 0 \; * \; (fix \; (\lambda fact. \lambda n. if \; n \; = \; 0 \; then \; 1 \; else \; n \; * \; fact \; (n-1))) \; (0-1))))$}
-  \item \texttt{$-> 3 \; * \; (2 \; * \; (1 \; * \; 1))$}
-  \item \texttt{$-> 3 \; * \; 2$}
-  \item \texttt{$-> \; 6$}
-\end{itemize}
-
-\subsubsection{Comments \& Questions}
-
-My question for this week: Given the emphasis on recursion in the homework, as functions tend to expand as they did in reference to the factorial function we needed to compute, they become increasingly harder and harder to keep track of with the human eye, but computers do not have this problem as far as I am aware. If there is such a threshold where computers begin to experience problems with keeping track of such large expressions, what defines that point? Is it standard accross all computers or is it based on specific components that would be diffrent across computers?
-
-\subsection{\ldots} 
-
-\ldots
-
-\section{Lessons from the Assignments}
-
-%(Delete and Replace): Write three pages about your individual contributions to the project.
-
-%On 3 pages you describe lessons you learned from the project. Be as technical and detailed as possible. Particularly valuable are \emph{interesting} examples where you connect concrete technical details with \emph{interesting} general observations or where the theory discussed in the lectures helped with the design or implementation of the project.
-
-%Write this section during the semester. This is approximately a quarter of apage per week and the material should come from the work you do anyway. Just keep your eyes open for interesting lessons.
-
-%Make sure that you use \LaTeX{} to structure your writing (eg by using subsections).
-
-\section{Conclusion}\label{conclusion}
-
-%(Delete and Replace): (approx 400 words) A critical reflection on the content of the course. Step back from the technical details. How does the course fit into the wider world of software engineering? What did you find most interesting or useful? What improvements would you suggest?
-
-\begin{thebibliography}{99}
-\bibitem[BLA]{bla} Author, \href{https://en.wikipedia.org/wiki/LaTeX}{Title}, Publisher, Year.
-\end{thebibliography}
+  Tuesday: What is a proposition? Covering Eric Villanueva's question "I wonder how the computer or code implements the logic we have in understanding discrete mathematics to make computtations. How do we define the idea of successors so that the computer knows how to carry out calculations?"
+
+  \subsubsection{Notes and Homework}
+    \subsubsection*{World 1 Solution:}
+    \begin{lstlisting}
+      Induction n with d
+      rw[add_zero]
+      rfl
+      rw[succ_eq_add_one]
+      rw[one_eq_succ_zero]
+      rw[add_zero]
+      rw[add_succ]
+      rw[n_ih]
+      rfl
+    \end{lstlisting}
+    \subsubsection*{World 2 Solution:}
+    \begin{lstlisting}
+      Induction b with d hd
+      rw[add_zero, add_zero]
+      rfl
+      rw[add_succ, add_succ]
+      rw[hd]
+      rfl
+    \end{lstlisting}
+    \subsubsection*{World 3 Solution:}
+    \begin{lstlisting}
+      Induction b with b hb
+      rw[add_zero, zero_add]
+      rfl
+      rw[\,add_succ, succ_add, hb]
+      rfl
+    \end{lstlisting}
+    \subsubsection*{World 4 Solution:}
+    \begin{lstlisting}
+      Induction c with c hc
+      rw[add_zero]
+      rw[add_zero]
+      rfl
+      rw[add_succ]
+      rw[add_succ]
+      rw[hc]
+      rfl
+    \end{lstlisting}
+    \subsubsection*{World 5 Solution:}
+    \begin{lstlisting}
+      Induction c with c hc
+      rw[add_zero, add_zero]
+      rfl
+      rw[add_succ, add_succ]
+      rw[succ_add]
+      rw[hc]
+      rfl
+    \end{lstlisting}
+
+  \subsubsection*{Detailed World 5 Solution:}
+    World 5's solution is to discover the add\_right\_comm function through other theorems we are already familier with. Utilizing several Lean theorems, such as \texttt{rw[\,add\_succ]\,, rw[\,add\_zero]\,}, and proving by indcution, we can rewrite $a+b+c = a+c+b$ into $\successor (a+c+b) = \successor  (a+c+b)$. Proving this fact using standard mathematics follows a similar set of rules as well. Should you aim to prove by induction, you can then add zeros and use reflexivity to reconstruct an equation to prove add\_right\_comm.
+
+  \subsubsection{Comments \& Questions}
+    In reference to the additional reading for this week, the dialogue \textit{Little Harmonic Labrinth}, it describes recursion in a much more palatable format. Essentially, you have an item operating within itself endlessly. This concept is very useful as a time saver when it comes to certain coding tasks, but my question in relation to recursion is; How can recursion be optimized in a computer environment as to be effective without running out of resources in relation to large tasks? 
+
+  \subsection{Week 3}
+
+  \subsubsection{Notes \& Homework}
+    Tuesday: Spent time introducing the assignment for the week: \textit{Find a question (or a set of related questions) on the topic of Programming Languages. Feel free to discus with your instructor. As always, the questions must be interesting.}
+    Thursday: Continued working on the assignment as well as covering course material. 
+
+  \subsubsection{Comments \& Questions}
+    My question for this week was built into my assignment, but I will list it again here. The idea I chose to investigate for this assignment was how have programming languages improved upon each other over the course of several iterations? Taking in batches of four to five programming languages that came out roughly around the same time as each other, I wanted to ask a LLM, in this case ChatGPT 3.5, how has each iteration of programming languages improved upon each other, and why those improvements were deemed necessary or desired. For each iteration, I asked a similar question providing a handful of other programming languages, asking about how the new iterations of programming languages improved upon the previous iterations. All in all, my version of this assignment covers descriptions of twenty-seven different programming languages, the purpose behind their development, and how the next generation of programming languages improved upon the previous. Interestingly enough, a majority of improvements came about due to a desire for easier readability, error detectability, and functionality for those looking to better understand code without a very in-depth scientific background. Other grounds for desired upgrades appeared in the economic sector, as businesses desired programs and systems that allowed for easier data collection, moderation, and manipulation.
+
+  \subsection{Week 4}
+
+  \subsubsection{Notes \& Homework}
+    Tuesday: Covering individuals projects from last week. 
+    \newline Thursday: Learning to use Cursor and its various features. Progress on Assignment 1 and associated lab work.
+
+    Homework: Solve homework exercises in relation to parsing trees. Below, questions 1-5 are completed with specific solutions being in differing colors.
+    \graphicspath{ {C:/Users/jrmul/OneDrive/Documents/CPSC_Courses/CPSC_354/images/} }
+    \begin{center} \includegraphics[width=0.8\textwidth]{HW4_Solutions} \end{center}
+
+  \subsubsection{Comments \& Questions}
+
+  My question for this week centers around the ideas of parsing trees. How are parsing trees best utilized when in a coding environment? They seem very useful for mathematical equations and logical reasoning, but I am unsure of how they would be useful when programming.
+
+  \subsection{Week 5}
+
+  \subsubsection{Notes \& Homework}
+  Tuesday: Working on Assignment 2, due Wednesday. 
+  \newline Thursday: Begin $\wedge$ Tutorial: Party Invites. Solutions to levels 1-8 are listed below.
+
+    \subsubsection*{World 1 Solution:}
+    \begin{lstlisting}
+      exact todo_list
+    \end{lstlisting}
+
+    \subsubsection*{World 2 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      exact $\langle$p, s$\rangle$
+    \end{lstlisting}
+
+    \subsubsection*{World 3 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      have ai := and_intro a i
+      have ou := and_intro o u
+      exact $\langle$ai, ou$\rangle$
+    \end{lstlisting}
+    
+    \subsubsection*{World 4 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      exact and_left vm
+    \end{lstlisting}
+    
+    \subsubsection*{World 5 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      exact and_right h.
+    \end{lstlisting}
+    
+    \subsubsection*{World 6 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      exact $\langle$h1.left, h2.right$\rangle$
+    \end{lstlisting}
+    
+    \subsubsection*{World 7 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      have h1 := h.left
+      have h2 := h.right 
+      have h3 := h2.left
+      have h4 := h3.left
+      exact h4.right.
+    \end{lstlisting}
+    
+    \subsubsection*{World 8 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      have h1 := h.left
+      have a := h1.right
+      have b := h1.left
+      have h2 := h.right
+      have h3 := h2.right
+      have h4 := h3.left
+      have c := h4.left
+      exact $\langle$ a, b, c$\rangle$
+    \end{lstlisting}
+
+    \subsubsection*{Detailed World 8 Solution:}
+      The solution for world 8 written in mathematical logic goes as follows: 
+      \begin{itemize}
+        \item Assume $h=((P \wedge S) \wedge A) \wedge \not I \wedge (C \wedge \not O) \wedge \not U$
+        \item $h1 = (P \wedge S) \wedge A$ and\_left on h $(1)$
+        \item $a = A$ and\_right on h1 $(2)$
+        \item $b = P \wedge S, $ and\_left on h1 $(3)$ 
+        \item $h2 = \not I \wedge (C \wedge \not O) \wedge \not U$ and\_right on h $(4)$
+        \item $h3 = (C \wedge \not O) \wedge \not U, $ and\_right on h2 $(5)$
+        \item $h4 = C \wedge \not O, $ and\_left on h3 $(6)$
+        \item $c = C, $ and\_left on h4 $(7)$
+        \item $A \wedge C \wedge P \wedge S$ $(8)$
+      \end{itemize}
+
+  \subsubsection{Comments \& Questions}
+  My question for this week pertains to the complexity of lean. As we progress through different worlds of the game, the harder and more complex the problems we have to solve, especially on boss levels, where combinations from prior levels are brought together to make one much more challenging level. In math however, items that are significantly more complex than simple logic proofs or basic arithmetic exist. How then does Lean simplify complex math down into assumed proofs for much larger and complex equations or logic proofs, and what problems take longer to solve using a Lean logic rather than standard math or coding logic?
+
+
+  \subsection{Week 6} 
+
+  \subsubsection{Notes \& Homework}
+  Tuesday: We began to cover the ideas of lambda calculus, introducing some ideas for lambda parsing, as well as the Lean Logic levels on implications. 
+  \newline Thursday: We continued to cover lambda calculus, specifically lambda abstraction and application. 
+
+
+    
+    \subsubsection*{World 1 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\exact$ backery_service p
+    \end{lstlisting}
+
+    \subsubsection*{World 2 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\exact$ $\lambda$(h : C) $\mapsto$ h
+    \end{lstlisting}
+    
+    \subsubsection*{World 3 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\exact$ $\lambda$ h : I $\wedge$ S $\mapsto$ $\andIntro$ ($\andRight$ h) h.left
+    \end{lstlisting}
+  
+    \subsubsection*{World 4 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\exact$ h1 >> h2
+    \end{lstlisting}
+
+    \subsubsection*{World 5 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\have$ step1 := h1 >> h3
+    \end{lstlisting}
+    
+    \subsubsection*{World 6 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\exact$ $\lambda$ c $\mapsto$ $\andIntro$ c >> h
+    \end{lstlisting}
+    
+    \subsubsection*{World 7 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\exact$ $\lambda$(cd: C $\wedge$ D) $\mapsto$ h cd.left cd.right
+    \end{lstlisting}
+
+    \subsubsection*{World 8 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\exact$ $\lambda$(s : S) $\mapsto$ $\andIntro$ (h.left s) (h.right s)
+    \end{lstlisting}
+    
+    \subsubsection*{World 9 Solution:}
+    \begin{lstlisting}[mathescape=true]
+      $\have$  sr := $\lambda$(r: R)(_ : S) $\mapsto$ r $\have$ nsr := $\lambda$(r: R)(_ : $\not$ S) $\mapsto$ r $\exact$ $\lambda$ r $\mapsto$ $\langle$ sr r, nsr r $\rangle$
+    \end{lstlisting}
+
+
+
+  \subsubsection{Comments \& Questions}
+
+  My question this week since we delved deeper into the world of lambda calculus is this: Since lambda calculus is a tool primarily used for function abstraction and fuction applications, is there a limit to what can be encoded within lambda calculus? Is there a point in which it struggles or, given enough time, could lambda calculus parse anything given the proper conditions and rules? I would assume the latter given infinite time, but if there is a more efficient method for certain calculations, I'd be interested to know how the computer parses those problems and what tools are used in the analyzing of such a function.
+
+
+  \subsection{Week 7}
+
+  \subsubsection{Notes \& Homework}
+    Tuesday: We continued to cover ideas of lambda calculus and covered last weeks questions on discord. 
+    \newline Thursday: We introduced the idea of church numerals, covered the weekly homework, and covered more lambda calculus calculations in class.
+
+    The secondary aspect of the homework this week asked a question to explain the function on natural numbers $(\lambda m. \lambda n. m n)$ implements. It takes two functions $m$ and $n$ and applies $m$ to $n$. In relation to church numerals, the function represents addition between two listed functions. 
+
+  \begin{center} \includegraphics[width=0.7\textwidth]{HW7_Solutions} \end{center}
+
+  \subsubsection{Comments \& Questions}
+    With how we've covered church numerals in this homework and in class, my question this week is how quickly can these complex types of church numeral equations be calculated in a computer environment, and how high do equations like these tend to scale? Is there a better more preferential option for more complex equations or can this type of calculation be scaled to meet even the most complex forms of calculus?
+
+  \subsection{Week 8 \& 9}
+
+  \subsubsection{ Notes \& Homework}
+    Tuesday: We introduced the third homework assignment, covering the premise as well as assigning partners for the project. We continued on with lambda calculus examples, furthering our knowledge of substitution and other important functions.
+    \newline Thursday: We continued work on the code provided to us by our professors, executing steps one through nine as provided on Canvas.
+
+  
+  \subsubsection*{Steps of Execution:}
+  \begin{lstlisting}[mathescape=true]
+    Step 1: Not required for HW.
+    
+    Step 2: I added these functions to the test.lc file:
+      $\lambda$ x.$\lambda$ y.x
+      $\lambda$ x.$\lambda$ y.y
+      $\lambda$ x.$\lambda$y.$\lambda$ z.x z
+      $\lambda$ x.x x
+      $(\lambda$ x.x x)($\lambda$ x.x x)
+    In addition to these new functions though, to answer the second part of step 2, the reason the expression $a\; b\; c\; d$ reduces to $(((a\; b)\;c)\;d)$ is because association between variables is always prioritized to the left!
+    
+    Step 3: Capture avoid substitution works due to the interesting principle that variables in lambda calculus can be substituted for any other variable name so long as they are not bound in an equation. For instance, a funtion of x means the same thing as a function of a or a function of b. The variable's name has no extreme relevance unless the function dictates so through a different set of circumstances. Imagine for a moment the equation $(\lambda x.(\lambda y.yx))$. One could rewrite this equation to be $(\lambda a.(\lambda b.ba))$, and this would be a functional form of substitution.However, if you took a closer look at the internal expression \texttt{$(\lambda y.yx)$}, one could say that this smaller function has a free variable $x$, meaning it isn't associated with any other lambda values in the expression. Now though, if we took that internal expression and changed the $y$ variable to $x$ such as this, $(\lambda x.xx)$, our originally free variable x has now become captured by our variable name change, completely altering the expression. Therefore when substituting variables, we must perform Capture Avoiding Substitution as to avoid capturing these free variables and fundamentally altering the expression. In our code provided to us, this is done with the function {NameGenerator}. Using variables passed to the function, it uses a counter to perpetually increase the number of variables passed through the function allowing for an incredible amount of increasing random variables attached to the string \texttt{Var}. When a function is passed into the interpreter and subsitution is neccesary, the output will more than likely contain the values Var[i], where $i$ is the number of times the NameGenerator function has been called.
+  
+    Step 4: The answer to this question is interesting because it almost feels like it was slightly spoiled by Step 5, but the answer is no. I do not always get what I expected when I input values due to functions that cannot be reduced to a normal form.
+  
+    Step 5: The MWE, or Minimum Working Expression value that I found is \texttt{$(\lambda x.x x)(\lambda x.x x)$}, which was also a function provided to us in the Church Encodings information file we covered in class. When executed, the function will return itself over and over and over again in an infinite loop of recursion until a check is made stopping the function from running infinitly.
+  
+    Step 6: This step is not required for the HW.
+  
+    Step 7: Upon the execution of the function $((\lambda m.\lambda n. m n) (\lambda f.\lambda x. f (f x))) (\lambda f.\lambda x. f (f (f x)))$, the output $(\lambda Var3.(\lambda Var5.(Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 Var5)))))))))))$ is produced. For my output that I recieved from looking at the debugger for steps 7 & 8, I wondered if I would recieve different output due to my modifications to my evaluate function prior to completing these steps. I beleive that I do have very different output, but following the instructions to the best of my ability, below are the responses I recieved for Step 7:
+  \end{lstlisting}
+ 
+    \begin{itemize}
+    \item \texttt{$('lam', 'Var1', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x'))))), ('var', 'Var1')))$}
+    \item \texttt{$('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2'))))$}
+    \item \texttt{$('lam', 'Var1', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x'))))), ('var', 'Var1')))$}
+    \item \texttt{$('lam', 'Var3', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), ('var', 'Var3'))))$}
+    \item \texttt{$('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4')))))$}
+    \item \texttt{$('lam', 'Var5', ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var4'))))), \newline ('var', 'Var5')))))$}
+    \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var5'))))$}
+    \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('var', 'Var5')))))))$}
+    \item \texttt{$('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('var', 'Var5'))))))))))$}
+    \item \texttt{$('lam', 'Var5', ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('app', ('lam', 'Var4', ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), ('app', ('var', 'Var3'), \newline ('var', 'Var4'))))), ('var', 'Var5')))))$}
+    \item \texttt{$('lam', 'Var3', ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('app', ('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))), \newline ('var', 'Var3'))))$}
+    \item \texttt{Result: $(\lambda Var3.(\lambda Var5.(Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3 (Var3\; Var5)))))))))))$}
+    \end{itemize}
+
+   \begin{lstlisting}
+    Step 8: Similar to step seven, due to my alterations to the evaluate function, my code below is split into my two instances of the evaluate function and their associated outputs.
+   \end{lstlisting}
+      \begin{itemize}
+      \item \texttt{e1 = $('var', 'm')$, e2 = $('var', 'n')$}
+      \item \texttt{e1 = $('var', 'f')$, e2 = $('var', 'x')$}
+      \item \texttt{e1 = $('lam', 'm', ('lam', 'n', ('app', ('var', 'm'), ('var', 'n'))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))$}
+      \item \texttt{e1 = $('var', 'Var1')$, e2 = $('var', 'Var2')$}
+      \item \texttt{e1 = $('lam', 'm', ('lam', 'n', ('app', ('var', 'm'), ('var', 'n'))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('app', ('var', 'f'), ('var', 'x')))))$}
+      \item \texttt{e1 = $('lam', 'Var1', ('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2')))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$}
+      \item \texttt{e1 = $('var', 'f')$, e2 $('var', 'x')$}
+      \item \texttt{e1 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$, e2 = $('var', 'Var3')$}
+      \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var4')$}
+      \item \texttt{e1 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$, \newline e2 = $('lam', 'Var4', ('app', ('var', 'Var3'), ('var', 'Var4')))$}
+      \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var4')$}
+      \item \texttt{e1 = $('lam', 'Var4', ('app', ('var', 'Var3'), ('var', 'Var4')))$, e2 = $('var', 'Var5')$}
+      \item \texttt{e1 = $('var', 'Var3')$, e2 = $('var', 'Var5')$}
+      \item \texttt{e1 = $('lam', 'Var1', ('lam', 'Var2', ('app', ('var', 'Var1'), ('app', ('var', 'Var1'), ('var', 'Var2')))))$, \newline e2 = $('lam', 'f', ('lam', 'x', ('app', ('var', 'f'), ('var', 'x'))))$}
+      \item \texttt{Result: $(\lambda Var3.(\lambda Var5.(Var3\; Var5)))$}
+      \end{itemize}
+
+  \subsubsection{Comments \& Questions}
+  My question for week 8 is how have the use cases for lambda calculus evolved over its existence? What was it originally designed for? What is it primaraly used for now? Are those answers different, and if so, when did they branch? 
+  
+  My Question for week 9 is given that there are certain equations that do not reduce to a normal form like the MWE, what are other examples of functions that do not reduce to a normal form, and what do we do with said functions? What do they represent in a math context similar to standard calculus?
+
+  \subsection{Week 10}
+
+  \subsubsection{Notes}
+  Tuesday: As we were granted an extension on the homework and programming assignment for weeks 8 \& 9, we continued learning about lambda calculus and its various types of functions. \newline Thursday: I was unfortunetly absent from the class, but I continued working on the programming assignments and assoicated homework assignments. Looking at the posted notes, what was covered in class was further examples of ARS termination as well as an introduction to sorting algorithms through Bubble Sort experimentation.
+
+  \subsubsection{Homework}
+  What I found most challenging about working through homeworks 8 \& 9 was the pieces of the homework regarding debugging. Since I did the homework a little out of order, I was unfortunetly graced with a significantly larger debugging task than I would have otherwise encountered due to my recursive setup to solve the Assignment3 premise.
+  
+  My solution to said problem was discovered after some experimentation with the evaluate function. After some initial trial and error, I was only able to successfully reduce half of a large inputed expression to a desired normal form. It was then I went down the thought path of beta-reducing both halves of a large expression in order to calculate a properly reduced outcome, which yielded correct results upon several tested executions.
+  
+  I really enjoyed working on this programming assignment as it proved to me once again that I tend to get in my own head with certain challenges. This programming assignment was one that I though would be significantly difficult, especially due to the fact that I was working alone. However, upon discovering a possible method of execution for the programming assignment, I found that I was able to create a solid solution in a timely manner. This assignment is a nice reminder to myself that I know more than I tend to give myself credit for, and to be confident in the material that I know.
+
+  \subsubsection{Comments \& Questions}
+
+  My question for this week revoles around the bubble sort method covered last session on Thursday. For all the sorted values leading to successfully calculated normal forms, is there any way to affect the efficiency of the sorting algorithm? Assuming that a successful conversion of a function to normal form is a success, how can we guarantee mass conversion rates to normal form to boost a positive efficiency rate?
+
+  \subsection{Week 11}
+
+  \subsubsection{Notes \& Homework}
+
+  Tuesday: We began identifying ARS's and constructing various forms of them under certain criteria of either confluent, terminating, or possesing a unique normal form. Below is my rendition of the homework for this week.
+
+  \graphicspath{ {C:/Users/jrmul/OneDrive/Documents/CPSC_Courses/CPSC_354/images/} }
+  \begin{center} \includegraphics[width=0.8\textwidth]{HW11_Solutions} \end{center}
+
+  \subsubsection{Comments \& Questions}
+
+  My question for this week in relation to ARS's is how can they be used in practical computation? Are they used as a simplification method or are they used in calculations or other forms of connectivity? 
+
+  \subsection{Week 12}
+
+  \subsubsection{Notes}
+  Tuesday: We continued review on ARS's, specifically with rules of confluence, termination, and unique normal forms with regards to rewriting rules.
+  \newline
+  Thursday: We were introduced to milestone 2 of the fourth programming assingment as well as the continuation of learning about ARS's.
+
+  \subsubsection{Homework}
+  \graphicspath{ {C:/Users/jrmul/OneDrive/Documents/CPSC_Courses/CPSC_354/images/} }
+  \begin{center} \includegraphics[width=0.9\textwidth]{HW12_Solution1} \end{center}
+  \begin{center} \includegraphics[width=0.9\textwidth]{HW12_Solution2} \end{center}
+  \begin{center} \includegraphics[width=0.9\textwidth]{HW12_Solution3} \end{center}
+
+  \subsubsection{Comments \& Questions}
+  My question for this week is: What are ways to reduce the likelyhood of there being a non-terminating result when creating an ARS, and how common is it when creating an ARS to find a terminating result where one wasn't expected? 
+
+  \subsection{Week 13}
+  \subsubsection{Notes \& Homework}
+
+  Tuesday: We began to investigate the idea of method functions, functions of assigning such as let, functions to help compute recursion, as well as if and else statements.
+  \newline
+  Thursday: We were assigned homework 13 to compute the factorial of 3 utilizng lambda calculus. We spend the majority of the class time working on the homework.
+
+  \begin{lstlisting}[mathescape=true]
+     let rec fact = $\lambda$n. if n = 0 then 1 else n * fact (n-1) in fact 3
+     -> let fact = fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1)) in fact 3
+     -> (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1))) 3
+     -> ($\lambda$ fact. $\lambda$ n. if n=0 then 1 else n * fact (n-1)) (fix ($\lambda$ fact. $\lambda$ n. if n=0 then 1 else n * fact (n-1))) 3
+     -> ($\lambda$ n. if n = 0 then 1 else n * (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else \; n \; * \; fact \; (n-1))) \; (n-1)) \; 3$
+     -> if 3 = 0 then 1 else 3 * (fix ($\lambda$ fact. $\$lambda$ n. if n = 0 then 1 else n * fact (n-1))) (3-1)
+     -> 3 * (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1))) 2
+     -> 3 *  ($\lambda$ n. if n = 0 then 1 else n * (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1))) (n-1)) 2
+     -> 3 * (if 2 = 0 then 1 else 2 * (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1))) (2-1))
+     -> 3 * (2 * (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1))) 1)
+     -> 3 * (2 * ($\lambda$ n. if n = 0 then 1 else n * (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1))) (n-1)) 1)
+     -> 3 * (2 * (1 * (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1))) 0))
+     -> 3 * (2 *(1 * (if 0 = 0 then 1 else 0 * (fix ($\lambda$ fact. $\lambda$ n. if n = 0 then 1 else n * fact (n-1))) (0-1))))
+     -> 3 * (2 * (1 * 1))
+     -> 3 * 2
+     -> 6
+  \end{lstlisting}
+  
+
+  \subsubsection{Comments \& Questions}
+
+  My question for this week: Given the emphasis on recursion in the homework, as functions tend to expand as they did in reference to the factorial function we needed to compute, they become increasingly harder and harder to keep track of with the human eye, but computers do not have this problem as far as I am aware. If there is such a threshold where computers begin to experience problems with keeping track of such large expressions, what defines that point? Is it standard accross all computers or is it based on specific components that would be diffrent across computers?
+
+  \section{Lessons from the Group Assignments \& Project}
+
+  \subsection*{Introduction:}
+  I would first like to say that I had a very entertaining time working on the assignments provided to us 
+  throughout the semester. Assignment one and two were quite interesting and I took away the idea, especially 
+  from assignment two, the fact that most of us coding in our day to day lives utilize modules that someone else 
+  created. Experiments like this, where we build complex objects out of their singular building blocks, are so 
+  incredibly important as to not take for granted where we now stand, and I am glad to have had the opportunity 
+  to do so this semester. 
+  
+  With reference then, to the group assignments, I had a very interesting set of circumstances throughout
+  assignment three and four as I worked on these assignments alone, but because of this I have an interesting 
+  perspective in terms of my contributions to these assignments as I was the sole contributor. With this being the 
+  case, my section on contributions will be quite short as all of the contributions to the code documents are my own, 
+  but I have a significant amount of observations having been the sole participant that I share below.
+  \subsection*{Observations:}
+  \subsubsection*{Assignment 4 Technical Problems}
+  My largest  observation with reference to these group assignments came about in assignment four and 
+  its various milestones. What seemed to trouble me to no end throughout this assignments, especially at the end,  
+  was the necessity for the total elimination and prevention of technical debt. As I worked on milestone two 
+  and three of the fourth assignment, the significant time between when I had last looked at the assignments 
+  to when I was attempting additions was somewhat of a problem for me. While I was able to complete each 
+  objective, the need to add new \emph{grammar}, add to the \emph{evaluate} fucntion, create new \emph{methods} 
+  for various types of function transformations, and then making each iteration work and be backwards 
+  compatable was a real challenge. It was somewhat commical sometimes watching older sets of rules fail 
+  as new changes were made, especially so when a fix to a newer rule would cause an issue with an older one, 
+  but upon finding the scenario where every rule worked in harmony with one another, it was pure bliss. 
+  This was especially true at the end of milestone three as I was having significan issues with the 
+  \emph{letrec} function. I finally was able to find a solution by completely changing how I handled the 
+  function in the \emph{interpreter.py} file, but with the necessary grammar changes to my \emph{grammar.lark} 
+  file, I had caused a separate section of my code to fail due to now obsolete staging! The assignment certainly 
+  wasn't all doom and gloom and technical debt though. The inverse of this problem though came about when I was combining 
+  assignments two and three to create milestone one of assignment four. I found that through my robust and well 
+  structured systems in the previous two assignments, it allowed for a nearly seamless transition into what I desired 
+  for the first milestone to be. It took no time at all to combine the basic \emph{operations} systems, those 
+  being \emph{addition}, \emph{subtraction}, \emph{multiplication}, and \emph{division}, with the $\lambda$-calculus 
+  ideas covered in assignment three.  
+
+  \subsubsection*{Assignment 4 Technical Solution}
+  A strategy moving forward to solve this problem before I could experience it again would be to map out my 
+  program before I begin coding. If I had a map of items to accomplish, it would allow for better document 
+  handling as well as better planning in terms of time management and expected difficulty, especially if there 
+  were parts of that code map I was unsure of or unaware of how to solve. With reference to an assignment like
+  this however, where the next stages of the assignment are hidden behind closed doors until the time is right, 
+  a map under these circumstances would still be very useful as a tool to look back upon as to not be caught up 
+  in any confusion as to the purpose of a method or its function.
+
+  \subsubsection*{Assignment 3 Observations}
+  What I found most interesting looking back on assignment three was the percieved difficulty of the assignment. 
+  I, and most of my other classmates, found assignment three to be quite difficult upon our first attempts at 
+  finding a solution, so much so that all of us were given a one-week extension to provide us with plenty of time 
+  to finish the assignment in a quality manner. As I mentioned in my week ten homework paragraph, programming 
+  assignment three was one that I thought would be significantly difficult, especially with the fact that I was 
+  working alone. Much to my suprise however, this wouldn't be the case. I was able to find a solid method of 
+  execution for the \emph{evaluate} function by breaking the intput into smaller halves; the actual fucntion and the
+  internal argument. Through this, I could process both halves and unify them to create a reasonable output. 
+  This assignment was a wonderful reminder to me that I know more than I tend to give myself credit for. I should 
+  be confident in my ability to code, and its nice to know that despite the fact we got an extension, I could have 
+  finished the project on time.
+  
+  \subsubsection*{Overall Observations}
+  These two assignments were a wonderful experience, and I am very glad to have taken programming langugages when 
+  I did. Otherwise, I would have missed out on a brand new curriculum! With reference to functional programming, 
+  I found the topics very interesting, albeit sometimes hard to wrap my head around. I am looking forward to learning 
+  more about the concept, and I have set a goal for myself over winter break to research the topic now that I have some 
+  free time. Overall, I had a great time working on these assignments, as I found them challenging but equally 
+  rewarding on completion.
+
+  \section{Conclusion}\label{conclusion}
+
+  In conclusion, this course has been a fantastic experience and very different from what most people have described 
+  to me in the past. I have heard that programming languages as a course would be one of the more difficult classes 
+  I would face here at Chapman, but I was pleasantly suprised as I found the material quite engaging. Seeing functional 
+  programming langugages like Haskell as well has made me excited to dig a little deeper into the concepts of learning 
+  how to functionally program. In addition, until this class, I had never found a good use for the math concepts we 
+  had been taught through Chapman's curriculum. This class put a significant amount of them to work, especially those 
+  concepts taught to us in digial logic. This class forced me to critically think in a lot of different ways throught 
+  the various homework assignments we were provided, and looking back, I appreciate this sincerely. Although this semester 
+  was one of my busiest, I really enjoyed the complexity of the homework assignments as they encouraged me to dive deep 
+  into the concepts of functional programming, a concept I have found to like significantly. I will certainly take from 
+  this class the ideas mentioned earlier in the \emph{Lessons from the Group Assignments} section, especialy the one that 
+  I know more than I think I do. The only comments on the class structure as a whole I would make would be a much swifter 
+  grading timetable, especially towards the end of the semester. I completely understand being busy with a large 
+  workload, but it is imperative for us students, espeically in a class such as this where our work can be improved upon, 
+  to see our work revised and returned to us before the final deadline for this revision opportunity. In addition, 
+  being unaware of where I stand grade-wise in a class before the final exam is never fun, so I would ask that in 
+  future renditions of the class that grades be posted on a much faster timescale. In addition, further comments on 
+  homework, citing where students have created mistakes and possibly how to correct them, would be invaluable to us 
+  as students. This would be particularly beneficial for students like myself who were unfortunetly unable to regularly 
+  attend your office hours sessions. Overall though, I had a fantastic time learning the concepts of Programming Languages. 
+  This class was very informative and I enjoyed taking it very much!
+  
+  
+  \begin{thebibliography}{99}
+  \bibitem[BLA]{bla} Author, \href{https://en.wikipedia.org/wiki/LaTeX}{Latex}, Publisher, Year.
+  \end{thebibliography}
 
 \end{document}
